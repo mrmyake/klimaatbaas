@@ -2,13 +2,23 @@ import { NextRequest, NextResponse } from "next/server";
 import { getSiteByHostname } from "@/lib/sites";
 
 export function middleware(request: NextRequest) {
-  const hostname = request.headers.get("host") || "localhost:3000";
+  // Vercel sets x-forwarded-host; fall back to host header for local dev
+  const hostname =
+    request.headers.get("x-forwarded-host") ||
+    request.headers.get("host") ||
+    "localhost:3000";
+
   const site = getSiteByHostname(hostname);
 
-  const response = NextResponse.next();
-  response.headers.set("x-site", site);
+  console.log(`[middleware] hostname="${hostname}" → site="${site}"`);
 
-  return response;
+  // Set x-site on the REQUEST headers so server components can read it via headers()
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-site", site);
+
+  return NextResponse.next({
+    request: { headers: requestHeaders },
+  });
 }
 
 export const config = {
