@@ -1,6 +1,8 @@
 import { headers } from "next/headers";
 import type { Metadata } from "next";
 import { sites, type SiteKey } from "@/lib/sites";
+
+export const dynamic = "force-dynamic";
 import WarmtebaasPage from "@/sites/warmtebaas/WarmtebaasPage";
 import AircobaasPage from "@/sites/aircobaas/AircobaasPage";
 import KlimaatbaasPage from "@/sites/klimaatbaas/KlimaatbaasPage";
