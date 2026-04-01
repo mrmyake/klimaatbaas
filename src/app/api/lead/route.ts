@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const data = leadSchema.parse(body);
 
-    // Insert into Supabase if configured
+    // Insert into Supabase if configured — this is the critical path
     if (
       process.env.NEXT_PUBLIC_SUPABASE_URL &&
       process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -43,10 +43,37 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Send notification email if Resend is configured
+    // Send notifications (non-blocking): ntfy push + Resend email
+    const notifications: Promise<unknown>[] = [];
+
+    // ntfy push notification
+    if (process.env.NTFY_TOPIC) {
+      notifications.push(
+        fetch(`https://ntfy.sh/${process.env.NTFY_TOPIC}`, {
+          method: "POST",
+          headers: {
+            Title: `Nieuwe lead via ${data.site}`,
+          },
+          body: `${data.naam} - ${data.telefoon} - ${data.postcode || "-"}`,
+        })
+      );
+    }
+
+    // Resend email notification
     if (process.env.RESEND_API_KEY) {
       const { sendLeadNotification } = await import("@/lib/resend");
-      await sendLeadNotification(data as unknown as Record<string, string>);
+      notifications.push(
+        sendLeadNotification(data as unknown as Record<string, string>)
+      );
+    }
+
+    if (notifications.length > 0) {
+      const results = await Promise.allSettled(notifications);
+      for (const result of results) {
+        if (result.status === "rejected") {
+          console.error("Notification failed:", result.reason);
+        }
+      }
     }
 
     return NextResponse.json({ success: true });
