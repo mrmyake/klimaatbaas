@@ -29,10 +29,12 @@ export default function Hero({
         <div
           className="absolute -top-40 -right-40 w-96 h-96 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: primaryColor }}
+          aria-hidden="true"
         />
         <div
           className="absolute -bottom-20 -left-20 w-72 h-72 rounded-full opacity-10 blur-3xl"
           style={{ backgroundColor: primaryColor }}
+          aria-hidden="true"
         />
       </div>
 
@@ -40,7 +42,7 @@ export default function Hero({
         <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-balance leading-tight mb-6">
           {kop}
         </h1>
-        <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 text-balance">
+        <p className="hero-subkop text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-10 text-balance">
           {subkop}
         </p>
 
@@ -51,7 +53,7 @@ export default function Hero({
             style={{ backgroundColor: primaryColor }}
           >
             {cta}
-            <ArrowDown className="w-5 h-5" />
+            <ArrowDown className="w-5 h-5" aria-hidden="true" />
           </button>
         ) : (
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

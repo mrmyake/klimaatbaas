@@ -17,6 +17,47 @@ import {
 
 const config = sites.subsidiebaas;
 
+const stappenItems = [
+  "Check de meldcodelijst op RVO.nl — alleen warmtepompen met een geldige meldcode komen in aanmerking.",
+  "Laat installeren door een erkend bedrijf — de meldcode moet op de offerte én factuur staan.",
+  "Bewaar uw documenten: factuur, betaalbewijs, installatiedatum en foto van de installatie.",
+  "Vraag subsidie aan via Mijn RVO — log in met DigiD en upload uw documenten.",
+  "Wacht op beoordeling — gemiddelde doorlooptijd: 8–13 weken.",
+  "Ontvang uw subsidie — het bedrag wordt op uw rekening gestort.",
+];
+
+function DirectAnswer() {
+  return (
+    <section className="direct-answer py-16 px-6 bg-green-50/30">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="font-heading text-2xl font-bold mb-6">
+          ISDE-subsidie warmtepomp 2026: de belangrijkste feiten
+        </h2>
+        <div className="space-y-4 text-gray-700 leading-relaxed">
+          <p>
+            <strong>Hoeveel subsidie krijg ik?</strong> De ISDE-subsidie voor
+            warmtepompen in 2026 varieert van €675 (warmtepompboiler) tot meer dan
+            €5.000 (grond-water warmtepomp). Een hybride warmtepomp levert gemiddeld
+            €2.125 subsidie op, een all-electric model ca. €3.025.
+          </p>
+          <p>
+            <strong>Wie komt in aanmerking?</strong> Woningeigenaren met een bestaande
+            woning (bouwvergunning vóór 1 juli 2018) die een warmtepomp laten
+            installeren door een gecertificeerd bedrijf.
+          </p>
+          <p>
+            <strong>Hoe vraag ik aan?</strong> Na installatie via Mijn RVO met DigiD.
+            Uitbetaling binnen 8–13 weken.{" "}
+            <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>
+              Warmtebaas regelt de volledige aanvraag voor u →
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function ISDeUitleg() {
   const items = [
     {
@@ -50,7 +91,7 @@ function ISDeUitleg() {
         <div className="grid sm:grid-cols-2 gap-6">
           {items.map((item) => (
             <div key={item.title} className="glass rounded-2xl p-8">
-              <item.icon className="w-8 h-8 text-green-500 mb-4" />
+              <item.icon className="w-8 h-8 text-green-500 mb-4" aria-hidden="true" />
               <h3 className="font-heading font-bold text-lg mb-2">
                 {item.title}
               </h3>
@@ -63,16 +104,30 @@ function ISDeUitleg() {
   );
 }
 
-function Stappenplan() {
-  const stappen = [
-    "Check de meldcodelijst op RVO.nl — alleen warmtepompen met een geldige meldcode komen in aanmerking.",
-    "Laat installeren door een erkend bedrijf — de meldcode moet op de offerte én factuur staan.",
-    "Bewaar uw documenten: factuur, betaalbewijs, installatiedatum en foto van de installatie.",
-    "Vraag subsidie aan via Mijn RVO — log in met DigiD en upload uw documenten.",
-    "Wacht op beoordeling — gemiddelde doorlooptijd: 8–13 weken.",
-    "Ontvang uw subsidie — het bedrag wordt op uw rekening gestort.",
-  ];
+function HowToSchema() {
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    name: "ISDE-subsidie aanvragen voor een warmtepomp",
+    description:
+      "Stappenplan om ISDE-subsidie aan te vragen na installatie van een warmtepomp.",
+    step: stappenItems.map((text, i) => ({
+      "@type": "HowToStep",
+      position: i + 1,
+      name: `Stap ${i + 1}`,
+      text,
+    })),
+  };
 
+  return (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+    />
+  );
+}
+
+function Stappenplan() {
   return (
     <section className="py-20 px-6 bg-green-50/50">
       <div className="max-w-3xl mx-auto">
@@ -80,7 +135,7 @@ function Stappenplan() {
           Stappenplan ISDE-aanvraag
         </h2>
         <div className="space-y-4">
-          {stappen.map((stap, i) => (
+          {stappenItems.map((stap, i) => (
             <div key={i} className="flex gap-4 items-start">
               <div className="w-8 h-8 rounded-full bg-green-600 text-white flex items-center justify-center text-sm font-bold shrink-0">
                 {i + 1}
@@ -121,7 +176,7 @@ function Checklist() {
         <div className="glass rounded-2xl p-8 space-y-3">
           {items.map((item) => (
             <div key={item} className="flex items-start gap-3">
-              <CheckSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" />
+              <CheckSquare className="w-5 h-5 text-green-500 shrink-0 mt-0.5" aria-hidden="true" />
               <span className="text-gray-700">{item}</span>
             </div>
           ))}
@@ -134,11 +189,48 @@ function Checklist() {
   );
 }
 
+function InternalLinks() {
+  return (
+    <section className="py-12 px-6 bg-white">
+      <div className="max-w-3xl mx-auto text-center">
+        <h2 className="font-heading text-2xl font-bold mb-4">
+          Klaar om te installeren?
+        </h2>
+        <p className="text-gray-600 mb-6">
+          Subsidiebaas is een initiatief van Klimaatbaas B.V. Wij installeren ook.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://warmtebaas.com"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors"
+          >
+            Warmtepomp installatie → Warmtebaas
+          </a>
+          <a
+            href="https://aircobaas.com"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-blue-200 text-blue-700 font-semibold hover:bg-blue-50 transition-colors"
+          >
+            Airco installatie → Aircobaas
+          </a>
+          <a
+            href="https://klimaatbaas.com"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors"
+          >
+            Over ons → Klimaatbaas
+          </a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function SubsidiebaasPage() {
   return (
     <>
+      <HowToSchema />
+
       <Hero
-        kop="Hoeveel subsidie krijgt u voor een warmtepomp?"
+        kop="Hoeveel ISDE-subsidie krijgt u voor een warmtepomp?"
         subkop="Check het direct. Gratis, vrijblijvend, in 2 minuten."
         cta="Start subsidiecheck"
         bgClass="bg-gradient-to-b from-green-50 to-emerald-50"
@@ -150,6 +242,8 @@ export default function SubsidiebaasPage() {
         }
       />
 
+      <DirectAnswer />
+
       <SubsidieCalculator primaryColor={config.colors.primary} variant="full" />
 
       <ISDeUitleg />
@@ -160,12 +254,12 @@ export default function SubsidiebaasPage() {
         primaryColor={config.colors.primary}
         items={[
           {
-            vraag: "Moet ik de subsidie zelf aanvragen?",
+            vraag: "Moet ik de ISDE-subsidie zelf aanvragen?",
             antwoord:
               "Dat kan, maar wij doen het ook voor u. Wij zijn bekend met de procedure en voorkomen fouten.",
           },
           {
-            vraag: "Kan ik subsidie combineren met een lening?",
+            vraag: "Kan ik ISDE-subsidie combineren met een lening?",
             antwoord:
               "Ja, u kunt ISDE combineren met het Nationaal Warmtefonds (lage rente) of een hypotheekverhoging.",
           },
@@ -175,7 +269,7 @@ export default function SubsidiebaasPage() {
               "Een unieke code die uw installateur na de installatie registreert bij RVO. Zonder meldcode geen subsidie.",
           },
           {
-            vraag: "Hoe lang duurt de uitbetaling?",
+            vraag: "Hoe lang duurt de uitbetaling van ISDE-subsidie?",
             antwoord:
               "Gemiddeld 8–13 weken na complete aanvraag.",
           },
@@ -186,6 +280,8 @@ export default function SubsidiebaasPage() {
           },
         ]}
       />
+
+      <InternalLinks />
 
       <LeadForm
         site="subsidiebaas"

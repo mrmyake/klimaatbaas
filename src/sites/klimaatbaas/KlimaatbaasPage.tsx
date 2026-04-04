@@ -19,6 +19,40 @@ import {
 
 const config = sites.klimaatbaas;
 
+function DirectAnswer() {
+  return (
+    <section className="direct-answer py-16 px-6 bg-slate-50/50">
+      <div className="max-w-3xl mx-auto">
+        <h2 className="font-heading text-2xl font-bold mb-6">
+          Warmtepomp of airco laten plaatsen in Midden-Nederland
+        </h2>
+        <div className="space-y-4 text-gray-700 leading-relaxed">
+          <p>
+            <strong>Wie is Klimaatbaas?</strong> Klimaatbaas B.V. is een
+            installatiebedrijf in Midden-Nederland, gespecialiseerd in warmtepompen
+            en airconditioning. Wij werken met twee specialistenteams: Warmtebaas
+            voor warmtepompen en Aircobaas voor airconditioning.
+          </p>
+          <p>
+            <strong>Warmtepomp nodig?</strong> Hybride warmtepompen vanaf €4.500, met
+            tot €4.400 ISDE-subsidie.{" "}
+            <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>
+              Bekijk warmtebaas.com →
+            </a>
+          </p>
+          <p>
+            <strong>Airco nodig?</strong> Single split vanaf €1.800, geplaatst
+            binnen 2 weken.{" "}
+            <a href="https://aircobaas.com" className="underline font-semibold" style={{ color: "#2980B9" }}>
+              Bekijk aircobaas.com →
+            </a>
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function WieZijnWij() {
   return (
     <section className="py-20 px-6">
@@ -29,8 +63,15 @@ function WieZijnWij() {
         <p className="text-gray-600 text-lg leading-relaxed">
           Klimaatbaas B.V. is een installatiebedrijf in Midden-Nederland,
           gespecialiseerd in warmtepompen en airconditioning. Wij werken met twee
-          specialistenteams: Warmtebaas voor warmtepompen en Aircobaas voor
-          airconditioning. Eén bedrijf, twee specialismen, volledige ontzorging.
+          specialistenteams:{" "}
+          <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>
+            Warmtebaas
+          </a>{" "}
+          voor warmtepompen en{" "}
+          <a href="https://aircobaas.com" className="underline font-semibold" style={{ color: "#2980B9" }}>
+            Aircobaas
+          </a>{" "}
+          voor airconditioning. Eén bedrijf, twee specialismen, volledige ontzorging.
         </p>
       </div>
     </section>
@@ -47,40 +88,48 @@ function Specialismen() {
         <div className="grid md:grid-cols-2 gap-8">
           <div className="glass rounded-2xl p-8 border-t-4 border-red-500">
             <div className="w-12 h-12 rounded-xl bg-red-100 flex items-center justify-center mb-5">
-              <Flame className="w-6 h-6 text-red-600" />
+              <Flame className="w-6 h-6 text-red-600" aria-hidden="true" />
             </div>
             <h3 className="font-heading text-xl font-bold mb-3">
-              Warmtebaas
+              Warmtebaas — Warmtepompen
             </h3>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-3">
               Hybride en all-electric warmtepompen. Inclusief
-              subsidie-ontzorging.
+              subsidie-ontzorging. Prijzen vanaf €4.500, met tot €4.400 ISDE-subsidie.
+            </p>
+            <p className="text-sm text-gray-500 mb-6">
+              Bekijk ook{" "}
+              <a href="https://subsidiebaas.com" className="underline" style={{ color: "#27AE60" }}>
+                subsidiebaas.com
+              </a>{" "}
+              voor een gratis subsidiecheck.
             </p>
             <a
               href="https://warmtebaas.com"
               className="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all"
             >
               Naar warmtebaas.com
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
 
           <div className="glass rounded-2xl p-8 border-t-4 border-blue-500">
             <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mb-5">
-              <Snowflake className="w-6 h-6 text-blue-600" />
+              <Snowflake className="w-6 h-6 text-blue-600" aria-hidden="true" />
             </div>
             <h3 className="font-heading text-xl font-bold mb-3">
-              Aircobaas
+              Aircobaas — Airconditioning
             </h3>
             <p className="text-gray-600 mb-6">
               Split en multi-split airconditioning. Koelen én verwarmen.
+              Geplaatst binnen 2 weken, vanaf €1.800.
             </p>
             <a
               href="https://aircobaas.com"
               className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
             >
               Naar aircobaas.com
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
         </div>
@@ -93,8 +142,8 @@ export default function KlimaatbaasPage() {
   return (
     <>
       <Hero
-        kop="Verwarmt. Koelt. Ontzorgd."
-        subkop="Klimaatbaas is uw totaalpartner voor warmtepompen en airconditioning in Midden-Nederland."
+        kop="Warmtepompen & Airconditioning in Midden-Nederland"
+        subkop="Klimaatbaas is uw totaalpartner voor warmtepompen en airconditioning. Verwarmt. Koelt. Ontzorgd."
         cta={[
           {
             label: "Warmtepomp →",
@@ -111,6 +160,7 @@ export default function KlimaatbaasPage() {
         primaryColor={config.colors.primary}
       />
 
+      <DirectAnswer />
       <WieZijnWij />
       <Specialismen />
 
@@ -145,7 +195,7 @@ export default function KlimaatbaasPage() {
         ]}
       />
 
-      <WerkgebiedKaart primaryColor={config.colors.primary} />
+      <WerkgebiedKaart primaryColor={config.colors.primary} siteSlug="klimaatbaas" />
 
       <Reviews
         primaryColor={config.colors.primary}

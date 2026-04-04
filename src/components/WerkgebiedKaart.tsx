@@ -36,13 +36,29 @@ const plaatsen = [
 interface WerkgebiedProps {
   primaryColor: string;
   compact?: boolean;
+  siteSlug?: string;
+}
+
+function toSlug(plaats: string) {
+  return plaats
+    .toLowerCase()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
 }
 
 export default function WerkgebiedKaart({
   primaryColor,
   compact,
+  siteSlug,
 }: WerkgebiedProps) {
   const shown = compact ? plaatsen.slice(0, 15) : plaatsen;
+
+  const serviceLabels: Record<string, string> = {
+    warmtebaas: "warmtepomp",
+    aircobaas: "airco",
+    klimaatbaas: "klimaatinstallatie",
+  };
+  const serviceLabel = siteSlug ? serviceLabels[siteSlug] : undefined;
 
   return (
     <section className="py-20 px-6 bg-gray-50/50">
@@ -55,15 +71,33 @@ export default function WerkgebiedKaart({
           Hilversum tot Woerden en alles daartussenin.
         </p>
         <div className="flex flex-wrap justify-center gap-3">
-          {shown.map((plaats) => (
-            <span
-              key={plaats}
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white shadow-sm border border-gray-100"
-            >
-              <MapPin className="w-3.5 h-3.5" style={{ color: primaryColor }} />
-              {plaats}
-            </span>
-          ))}
+          {shown.map((plaats) => {
+            const slug = toSlug(plaats);
+            const id = serviceLabel
+              ? `${serviceLabel}-${slug}`
+              : slug;
+
+            return (
+              <a
+                key={plaats}
+                id={id}
+                href={`#${id}`}
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                title={
+                  serviceLabel
+                    ? `${serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1)} in ${plaats}`
+                    : `Werkgebied ${plaats}`
+                }
+              >
+                <MapPin
+                  className="w-3.5 h-3.5"
+                  style={{ color: primaryColor }}
+                  aria-hidden="true"
+                />
+                {plaats}
+              </a>
+            );
+          })}
         </div>
       </div>
     </section>

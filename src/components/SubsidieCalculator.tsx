@@ -379,10 +379,37 @@ export default function SubsidieCalculator({
           )}
         </div>
 
+        {/* Plain text subsidie-overzicht voor crawlers (altijd in DOM) */}
+        <div className="mt-8 text-sm text-gray-600 max-w-2xl mx-auto" data-nosnippet={resultaat ? "true" : undefined}>
+          <h3 className="font-heading font-bold text-lg text-gray-800 mb-3">
+            ISDE-subsidie bedragen 2026
+          </h3>
+          <dl className="space-y-2">
+            <div className="flex justify-between border-b border-gray-100 pb-1">
+              <dt>Hybride warmtepomp (6 kW)</dt>
+              <dd className="font-semibold">ca. €2.375</dd>
+            </div>
+            <div className="flex justify-between border-b border-gray-100 pb-1">
+              <dt>All-electric warmtepomp (8 kW)</dt>
+              <dd className="font-semibold">ca. €2.825</dd>
+            </div>
+            <div className="flex justify-between border-b border-gray-100 pb-1">
+              <dt>Grond-water warmtepomp (10 kW)</dt>
+              <dd className="font-semibold">ca. €5.300</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt>Warmtepompboiler</dt>
+              <dd className="font-semibold">€675</dd>
+            </div>
+          </dl>
+          <p className="mt-2 text-xs text-gray-500">
+            Bedragen zijn indicatief. Exacte subsidie afhankelijk van vermogen, type en energielabel.
+          </p>
+        </div>
+
         {!isCompact && (
           <p className="text-xs text-gray-500 text-center mt-4">
-            Exacte bedrag afhankelijk van vermogen, type en energielabel. Wij
-            berekenen het precieze bedrag bij het adviesgesprek.
+            Wij berekenen het precieze bedrag bij het adviesgesprek.
           </p>
         )}
       </div>
