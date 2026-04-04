@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   berekenISDE2026,
   type WarmtepompType,
@@ -45,6 +45,33 @@ const vermogenOpties = [
   { kw: 14, label: "14+ kW", sub: "Zeer grote woning" },
 ];
 
+function AnimatedNumber({ value }: { value: number }) {
+  const [display, setDisplay] = useState(value);
+  const prevRef = useRef(value);
+
+  useEffect(() => {
+    const from = prevRef.current;
+    const to = value;
+    prevRef.current = value;
+    if (from === to) return;
+
+    const duration = 500;
+    const start = performance.now();
+
+    function tick(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setDisplay(Math.round(from + (to - from) * eased));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+
+    requestAnimationFrame(tick);
+  }, [value]);
+
+  return <>{display.toLocaleString("nl-NL")}</>;
+}
+
 interface SubsidieCalculatorProps {
   primaryColor: string;
   variant?: "full" | "compact";
@@ -61,7 +88,8 @@ export default function SubsidieCalculator({
   const [metIsolatie, setMetIsolatie] = useState(false);
   const [resultaat, setResultaat] = useState<SubsidieResultaat | null>(null);
 
-  const berekenSubsidie = () => {
+  // Live-update: recalculate whenever any input changes
+  useEffect(() => {
     if (!type) return;
     const res = berekenISDE2026({
       type,
@@ -71,7 +99,7 @@ export default function SubsidieCalculator({
       combineertMetIsolatie: metIsolatie,
     });
     setResultaat(res);
-  };
+  }, [type, vermogen, label, isEerste, metIsolatie]);
 
   const isCompact = variant === "compact";
 
@@ -102,10 +130,7 @@ export default function SubsidieCalculator({
               {typeOpties.map((opt) => (
                 <button
                   key={opt.value}
-                  onClick={() => {
-                    setType(opt.value);
-                    setResultaat(null);
-                  }}
+                  onClick={() => setType(opt.value)}
                   className={`flex items-center gap-4 p-4 rounded-xl border-2 text-left transition-all ${
                     type === opt.value
                       ? "border-current shadow-md"
@@ -121,6 +146,7 @@ export default function SubsidieCalculator({
                       color:
                         type === opt.value ? primaryColor : "#9ca3af",
                     }}
+                    aria-hidden="true"
                   />
                   <div>
                     <div className="font-medium text-sm">{opt.label}</div>
@@ -139,10 +165,7 @@ export default function SubsidieCalculator({
                 {vermogenOpties.map((opt) => (
                   <button
                     key={opt.kw}
-                    onClick={() => {
-                      setVermogen(opt.kw);
-                      setResultaat(null);
-                    }}
+                    onClick={() => setVermogen(opt.kw)}
                     className={`p-3 rounded-xl border-2 text-center transition-all ${
                       vermogen === opt.kw
                         ? "border-current shadow-md"
@@ -182,10 +205,7 @@ export default function SubsidieCalculator({
                 ).map((opt) => (
                   <button
                     key={opt.v}
-                    onClick={() => {
-                      setLabel(opt.v);
-                      setResultaat(null);
-                    }}
+                    onClick={() => setLabel(opt.v)}
                     className={`flex-1 p-3 rounded-xl border-2 text-center transition-all ${
                       label === opt.v
                         ? "border-current shadow-md"
@@ -211,10 +231,7 @@ export default function SubsidieCalculator({
               </h3>
               <div className="flex gap-3">
                 <button
-                  onClick={() => {
-                    setIsEerste(true);
-                    setResultaat(null);
-                  }}
+                  onClick={() => setIsEerste(true)}
                   className={`flex-1 p-3 rounded-xl border-2 text-center transition-all ${
                     isEerste
                       ? "border-current shadow-md"
@@ -227,10 +244,7 @@ export default function SubsidieCalculator({
                   </div>
                 </button>
                 <button
-                  onClick={() => {
-                    setIsEerste(false);
-                    setResultaat(null);
-                  }}
+                  onClick={() => setIsEerste(false)}
                   className={`flex-1 p-3 rounded-xl border-2 text-center transition-all ${
                     !isEerste
                       ? "border-current shadow-md"
@@ -254,10 +268,7 @@ export default function SubsidieCalculator({
               </h3>
               <div className="flex gap-3">
                 <button
-                  onClick={() => {
-                    setMetIsolatie(true);
-                    setResultaat(null);
-                  }}
+                  onClick={() => setMetIsolatie(true)}
                   className={`flex-1 p-3 rounded-xl border-2 text-center transition-all ${
                     metIsolatie
                       ? "border-current shadow-md"
@@ -271,10 +282,7 @@ export default function SubsidieCalculator({
                   </div>
                 </button>
                 <button
-                  onClick={() => {
-                    setMetIsolatie(false);
-                    setResultaat(null);
-                  }}
+                  onClick={() => setMetIsolatie(false)}
                   className={`flex-1 p-3 rounded-xl border-2 text-center transition-all ${
                     !metIsolatie
                       ? "border-current shadow-md"
@@ -288,28 +296,17 @@ export default function SubsidieCalculator({
             </div>
           )}
 
-          {/* Bereken knop */}
-          {type && (
-            <button
-              onClick={berekenSubsidie}
-              className="w-full text-white font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all hover:-translate-y-0.5 active:translate-y-0"
-              style={{ backgroundColor: primaryColor }}
-            >
-              Bereken mijn subsidie
-            </button>
-          )}
-
-          {/* Resultaat */}
+          {/* Live resultaat */}
           {resultaat && (
             <div
-              className="rounded-2xl p-8 text-white"
+              className="rounded-2xl p-8 text-white animate-fade-in"
               style={{ backgroundColor: primaryColor }}
             >
               <h3 className="text-lg font-semibold mb-2 opacity-90">
                 Uw indicatie ISDE-subsidie 2026
               </h3>
               <p className="text-4xl font-bold mb-6">
-                €{resultaat.totaal.toLocaleString("nl-NL")}
+                €<AnimatedNumber value={resultaat.totaal} />
               </p>
 
               <div className="space-y-2 text-sm opacity-90 mb-6">
@@ -341,7 +338,7 @@ export default function SubsidieCalculator({
                 )}
                 <div className="border-t border-white/30 pt-2 flex justify-between font-bold">
                   <span>Totaal</span>
-                  <span>€{resultaat.totaal.toLocaleString("nl-NL")}</span>
+                  <span>€<AnimatedNumber value={resultaat.totaal} /></span>
                 </div>
               </div>
 
@@ -349,7 +346,7 @@ export default function SubsidieCalculator({
                 <div className="bg-white/10 rounded-xl p-4 mb-6">
                   {resultaat.waarschuwingen.map((w, i) => (
                     <div key={i} className="flex gap-2 text-sm">
-                      <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" />
+                      <AlertTriangle className="w-4 h-4 shrink-0 mt-0.5" aria-hidden="true" />
                       <span>{w}</span>
                     </div>
                   ))}
@@ -372,7 +369,7 @@ export default function SubsidieCalculator({
                   style={{ color: primaryColor }}
                 >
                   Gratis adviesgesprek aanvragen
-                  <ArrowRight className="w-4 h-4" />
+                  <ArrowRight className="w-4 h-4" aria-hidden="true" />
                 </a>
               </div>
             </div>

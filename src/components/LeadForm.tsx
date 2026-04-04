@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
+import { CheckCircle, AlertCircle, Loader2, Phone } from "lucide-react";
 import type { SiteKey } from "@/lib/sites";
 
 interface FieldConfig {
@@ -101,9 +101,20 @@ export default function LeadForm({
   return (
     <section id="formulier" className="py-20 px-6">
       <div className="max-w-xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-center mb-8">
+        <h2 className="font-heading text-3xl font-bold text-center mb-4">
           {title}
         </h2>
+        <p className="text-center text-gray-500 mb-8 flex items-center justify-center gap-2">
+          <Phone className="w-4 h-4" aria-hidden="true" />
+          Liever direct bellen?{" "}
+          <a
+            href="tel:+31629173468"
+            className="font-semibold underline"
+            style={{ color: primaryColor }}
+          >
+            +31 6 2917 3468
+          </a>
+        </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="glass rounded-2xl p-8 space-y-5"
