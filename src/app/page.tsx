@@ -1,21 +1,29 @@
-import { headers } from "next/headers";
 import type { Metadata } from "next";
 import { sites, type SiteKey } from "@/lib/sites";
 
-export const dynamic = "force-dynamic";
 import WarmtebaasPage from "@/sites/warmtebaas/WarmtebaasPage";
 import AircobaasPage from "@/sites/aircobaas/AircobaasPage";
 import KlimaatbaasPage from "@/sites/klimaatbaas/KlimaatbaasPage";
 import SubsidiebaasPage from "@/sites/subsidiebaas/SubsidiebaasPage";
 
-function getSiteFromHeaders(): SiteKey {
-  const headersList = headers();
-  const site = headersList.get("x-site") as SiteKey | null;
-  return site && site in sites ? site : "klimaatbaas";
+const siteComponents: Record<SiteKey, React.ComponentType> = {
+  warmtebaas: WarmtebaasPage,
+  aircobaas: AircobaasPage,
+  klimaatbaas: KlimaatbaasPage,
+  subsidiebaas: SubsidiebaasPage,
+};
+
+function getSite(searchParams: { __site?: string }): SiteKey {
+  const site = searchParams.__site;
+  return site && site in sites ? (site as SiteKey) : "klimaatbaas";
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const site = getSiteFromHeaders();
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: { __site?: string };
+}): Promise<Metadata> {
+  const site = getSite(searchParams);
   const config = sites[site];
 
   return {
@@ -34,8 +42,13 @@ export async function generateMetadata(): Promise<Metadata> {
   };
 }
 
-export default function Page() {
-  const site = getSiteFromHeaders();
+export default function Page({
+  searchParams,
+}: {
+  searchParams: { __site?: string };
+}) {
+  const site = getSite(searchParams);
+  const SiteComponent = siteComponents[site];
 
   const structuredData =
     site === "klimaatbaas"
@@ -57,10 +70,7 @@ export default function Page() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       )}
-      {site === "warmtebaas" && <WarmtebaasPage />}
-      {site === "aircobaas" && <AircobaasPage />}
-      {site === "klimaatbaas" && <KlimaatbaasPage />}
-      {site === "subsidiebaas" && <SubsidiebaasPage />}
+      <SiteComponent />
     </>
   );
 }
