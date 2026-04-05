@@ -6,6 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { CheckCircle, AlertCircle, Loader2, Phone } from "lucide-react";
 import type { SiteKey } from "@/lib/sites";
+import { trackEvent } from "@/lib/analytics";
 
 interface FieldConfig {
   name: string;
@@ -78,6 +79,7 @@ export default function LeadForm({
         body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error();
+      trackEvent("lead_form_submit", { site, postcode: String(data.postcode || "") });
       setStatus("success");
     } catch {
       setStatus("error");
@@ -111,6 +113,7 @@ export default function LeadForm({
             href="tel:+31629173468"
             className="font-semibold underline"
             style={{ color: primaryColor }}
+            onClick={() => trackEvent("phone_click", { location: "lead_form" })}
           >
             +31 6 2917 3468
           </a>

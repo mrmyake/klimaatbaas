@@ -10,6 +10,8 @@ import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { sites } from "@/lib/sites";
+import { utmLink } from "@/lib/utm";
+import { trackEvent } from "@/lib/analytics";
 import { Clock, Thermometer, Paintbrush, Euro } from "lucide-react";
 
 const config = sites.aircobaas;
@@ -92,7 +94,7 @@ function PrijsIndicatie() {
         </div>
         <p className="text-sm text-gray-500 text-center mt-6">
           Ook interesse in een{" "}
-          <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>warmtepomp voor verwarming</a>? Bekijk warmtebaas.com.
+          <a href={utmLink("https://warmtebaas.com", "aircobaas", "prijstabel-link")} onClick={() => trackEvent("cta_click_warmtebaas")} className="underline font-semibold" style={{ color: "#C0392B" }}>warmtepomp voor verwarming</a>? Bekijk warmtebaas.com.
         </p>
       </div>
     </section>
@@ -129,9 +131,9 @@ function InternalLinks() {
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="font-heading text-2xl font-bold mb-4">Meer van Klimaatbaas</h2>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://warmtebaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors">Warmtepomp nodig? → Warmtebaas</a>
-          <a href="https://subsidiebaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-green-200 text-green-700 font-semibold hover:bg-green-50 transition-colors">Subsidie berekenen → Subsidiebaas</a>
-          <a href="https://klimaatbaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors">Over ons → Klimaatbaas</a>
+          <a href={utmLink("https://warmtebaas.com", "aircobaas", "meer-van-klimaatbaas")} onClick={() => trackEvent("cta_click_warmtebaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors">Warmtepomp nodig? → Warmtebaas</a>
+          <a href={utmLink("https://subsidiebaas.com", "aircobaas", "meer-van-klimaatbaas")} onClick={() => trackEvent("cta_click_subsidiebaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-green-200 text-green-700 font-semibold hover:bg-green-50 transition-colors">Subsidie berekenen → Subsidiebaas</a>
+          <a href={utmLink("https://klimaatbaas.com", "aircobaas", "meer-van-klimaatbaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors">Over ons → Klimaatbaas</a>
         </div>
       </div>
     </section>
@@ -197,7 +199,7 @@ export default function AircobaasPage() {
           { name: "bericht", label: "Bericht (optioneel)", type: "textarea", placeholder: "Heeft u nog vragen of opmerkingen?" },
         ]}
       />
-      <Footer primaryColor={config.colors.primary} links={[{ label: "Ook van het gas af? → warmtebaas.com", href: "https://warmtebaas.com" }, { label: "Subsidie checken? → subsidiebaas.com", href: "https://subsidiebaas.com" }]} />
+      <Footer primaryColor={config.colors.primary} links={[{ label: "Ook van het gas af? → warmtebaas.com", href: utmLink("https://warmtebaas.com", "aircobaas", "footer-link") }, { label: "Subsidie checken? → subsidiebaas.com", href: utmLink("https://subsidiebaas.com", "aircobaas", "footer-link") }]} />
       <StickyCTA label="Gratis offerte aanvragen" primaryColor={config.colors.primary} />
       <WhatsAppButton message="Hallo, ik heb een vraag over airconditioning" />
     </>

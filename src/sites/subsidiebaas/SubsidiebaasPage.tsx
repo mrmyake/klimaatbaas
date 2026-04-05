@@ -8,7 +8,10 @@ import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import VerifiedBy from "@/components/VerifiedBy";
 import { sites } from "@/lib/sites";
+import { utmLink } from "@/lib/utm";
+import { trackEvent } from "@/lib/analytics";
 import {
   FileText,
   Building2,
@@ -50,7 +53,7 @@ function DirectAnswer() {
           <p>
             <strong>Hoe vraag ik aan?</strong> Na installatie via Mijn RVO met DigiD.
             Uitbetaling binnen 8–13 weken.{" "}
-            <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>
+            <a href={utmLink("https://warmtebaas.com", "subsidiebaas", "direct-answer")} onClick={() => trackEvent("cta_click_warmtebaas")} className="underline font-semibold" style={{ color: "#C0392B" }}>
               Warmtebaas regelt de volledige aanvraag voor u →
             </a>
           </p>
@@ -158,9 +161,9 @@ function InternalLinks() {
         <h2 className="font-heading text-2xl font-bold mb-4">Klaar om te installeren?</h2>
         <p className="text-gray-600 mb-6">Subsidiebaas is een initiatief van Klimaatbaas B.V. Wij installeren ook.</p>
         <div className="flex flex-wrap justify-center gap-4">
-          <a href="https://warmtebaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors">Warmtepomp installatie → Warmtebaas</a>
-          <a href="https://aircobaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-blue-200 text-blue-700 font-semibold hover:bg-blue-50 transition-colors">Airco installatie → Aircobaas</a>
-          <a href="https://klimaatbaas.com" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors">Over ons → Klimaatbaas</a>
+          <a href={utmLink("https://warmtebaas.com", "subsidiebaas", "meer-van-klimaatbaas")} onClick={() => trackEvent("cta_click_warmtebaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors">Warmtepomp installatie → Warmtebaas</a>
+          <a href={utmLink("https://aircobaas.com", "subsidiebaas", "meer-van-klimaatbaas")} onClick={() => trackEvent("cta_click_aircobaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-blue-200 text-blue-700 font-semibold hover:bg-blue-50 transition-colors">Airco installatie → Aircobaas</a>
+          <a href={utmLink("https://klimaatbaas.com", "subsidiebaas", "meer-van-klimaatbaas")} className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-gray-200 text-gray-700 font-semibold hover:bg-gray-50 transition-colors">Over ons → Klimaatbaas</a>
         </div>
       </div>
     </section>
@@ -171,7 +174,16 @@ export default function SubsidiebaasPage() {
   return (
     <>
       <HowToSchema />
-      <Navbar siteName="Subsidiebaas" primaryColor={config.colors.primary} />
+      <Navbar
+        siteName="Subsidiebaas"
+        primaryColor={config.colors.primary}
+        links={[
+          { label: "Subsidie Berekenen", href: "#calculator" },
+          { label: "Veelgemaakte Fouten", href: "/subsidie-aanvraag-fouten" },
+          { label: "Ventilatie", href: "/ventilatiesubsidie-2026" },
+          { label: "Overgangsregeling", href: "/overgangsregeling-2024" },
+        ]}
+      />
       <Hero
         kop="Hoeveel ISDE-subsidie krijgt u voor een warmtepomp?"
         subkop="Check het direct. Gratis, vrijblijvend, in 2 minuten."
@@ -212,7 +224,8 @@ export default function SubsidiebaasPage() {
           { name: "bericht", label: "Bericht (optioneel)", type: "textarea", placeholder: "Heeft u nog vragen?" },
         ]}
       />
-      <Footer primaryColor={config.colors.primary} links={[{ label: "Klaar voor installatie? → warmtebaas.com", href: "https://warmtebaas.com" }, { label: "Airco nodig? → aircobaas.com", href: "https://aircobaas.com" }]} />
+      <VerifiedBy />
+      <Footer primaryColor={config.colors.primary} links={[{ label: "Klaar voor installatie? → warmtebaas.com", href: utmLink("https://warmtebaas.com", "subsidiebaas", "footer-link") }, { label: "Airco nodig? → aircobaas.com", href: utmLink("https://aircobaas.com", "subsidiebaas", "footer-link") }]} />
       <StickyCTA label="Start subsidiecheck" primaryColor={config.colors.primary} />
       <WhatsAppButton message="Hallo, ik heb een vraag over subsidie" />
     </>

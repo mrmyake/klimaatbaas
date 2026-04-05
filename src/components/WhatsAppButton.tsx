@@ -1,5 +1,7 @@
 "use client";
 
+import { trackEvent } from "@/lib/analytics";
+
 interface WhatsAppButtonProps {
   message: string;
 }
@@ -14,6 +16,7 @@ export default function WhatsAppButton({ message }: WhatsAppButtonProps) {
       rel="noopener noreferrer"
       aria-label="Chat via WhatsApp"
       className="fixed bottom-6 right-6 z-[60] w-14 h-14 rounded-full bg-[#25D366] shadow-lg hover:shadow-xl flex items-center justify-center transition-all hover:scale-105 animate-whatsapp-pulse"
+      onClick={() => trackEvent("whatsapp_click")}
     >
       <svg
         viewBox="0 0 32 32"

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
@@ -25,17 +26,15 @@ function GTMScript() {
   if (!gtmId) return null;
 
   return (
-    <>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','${gtmId}');`,
-        }}
-      />
-    </>
+      }}
+    />
   );
 }
 
@@ -55,6 +54,23 @@ function GTMNoScript() {
   );
 }
 
+function GA4Script() {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  if (!gaId) return null;
+
+  return (
+    <>
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+      </Script>
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -69,6 +85,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jakarta.variable} font-sans antialiased`}
       >
         <GTMNoScript />
+        <GA4Script />
         {children}
         <Analytics />
       </body>

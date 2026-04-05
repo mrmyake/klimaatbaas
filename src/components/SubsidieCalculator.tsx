@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import {
   berekenISDE2026,
   type WarmtepompType,
@@ -8,6 +8,7 @@ import {
   type SubsidieResultaat,
 } from "@/lib/subsidie-calculator";
 import { Flame, Zap, Globe, Droplets, AlertTriangle, ArrowRight } from "lucide-react";
+import { trackEvent } from "@/lib/analytics";
 
 const typeOpties = [
   {
@@ -87,6 +88,15 @@ export default function SubsidieCalculator({
   const [isEerste, setIsEerste] = useState(true);
   const [metIsolatie, setMetIsolatie] = useState(false);
   const [resultaat, setResultaat] = useState<SubsidieResultaat | null>(null);
+  const trackTimerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  // Debounced GA4 tracking
+  const trackCalculation = useCallback((wpType: string, bedrag: number) => {
+    if (trackTimerRef.current) clearTimeout(trackTimerRef.current);
+    trackTimerRef.current = setTimeout(() => {
+      trackEvent("calculator_used", { type: wpType, bedrag });
+    }, 1000);
+  }, []);
 
   // Live-update: recalculate whenever any input changes
   useEffect(() => {
@@ -99,7 +109,8 @@ export default function SubsidieCalculator({
       combineertMetIsolatie: metIsolatie,
     });
     setResultaat(res);
-  }, [type, vermogen, label, isEerste, metIsolatie]);
+    trackCalculation(type, res.totaal);
+  }, [type, vermogen, label, isEerste, metIsolatie, trackCalculation]);
 
   const isCompact = variant === "compact";
 

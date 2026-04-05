@@ -9,6 +9,8 @@ import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import { sites } from "@/lib/sites";
+import { utmLink } from "@/lib/utm";
+import { trackEvent } from "@/lib/analytics";
 import {
   ShieldCheck,
   MapPin,
@@ -39,12 +41,12 @@ function DirectAnswer() {
           <p>
             <strong>Warmtepomp nodig?</strong> Hybride warmtepompen vanaf €4.500, met
             tot €4.400 ISDE-subsidie.{" "}
-            <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>Bekijk warmtebaas.com →</a>
+            <a href={utmLink("https://warmtebaas.com", "klimaatbaas", "direct-answer")} onClick={() => trackEvent("cta_click_warmtebaas")} className="underline font-semibold" style={{ color: "#C0392B" }}>Bekijk warmtebaas.com →</a>
           </p>
           <p>
             <strong>Airco nodig?</strong> Single split vanaf €1.800, geplaatst
             binnen 2 weken.{" "}
-            <a href="https://aircobaas.com" className="underline font-semibold" style={{ color: "#2980B9" }}>Bekijk aircobaas.com →</a>
+            <a href={utmLink("https://aircobaas.com", "klimaatbaas", "direct-answer")} onClick={() => trackEvent("cta_click_aircobaas")} className="underline font-semibold" style={{ color: "#2980B9" }}>Bekijk aircobaas.com →</a>
           </p>
         </div>
       </div>
@@ -61,9 +63,9 @@ function WieZijnWij() {
           Klimaatbaas B.V. is een installatiebedrijf in Midden-Nederland,
           gespecialiseerd in warmtepompen en airconditioning. Wij werken met twee
           specialistenteams:{" "}
-          <a href="https://warmtebaas.com" className="underline font-semibold" style={{ color: "#C0392B" }}>Warmtebaas</a>{" "}
+          <a href={utmLink("https://warmtebaas.com", "klimaatbaas", "wie-zijn-wij")} onClick={() => trackEvent("cta_click_warmtebaas")} className="underline font-semibold" style={{ color: "#C0392B" }}>Warmtebaas</a>{" "}
           voor warmtepompen en{" "}
-          <a href="https://aircobaas.com" className="underline font-semibold" style={{ color: "#2980B9" }}>Aircobaas</a>{" "}
+          <a href={utmLink("https://aircobaas.com", "klimaatbaas", "wie-zijn-wij")} onClick={() => trackEvent("cta_click_aircobaas")} className="underline font-semibold" style={{ color: "#2980B9" }}>Aircobaas</a>{" "}
           voor airconditioning. Eén bedrijf, twee specialismen, volledige ontzorging.
         </p>
       </div>
@@ -127,9 +129,9 @@ function Specialismen() {
               Hybride en all-electric warmtepompen. Inclusief subsidie-ontzorging. Prijzen vanaf €4.500, met tot €4.400 ISDE-subsidie.
             </p>
             <p className="text-sm text-gray-500 mb-6">
-              Bekijk ook <a href="https://subsidiebaas.com" className="underline" style={{ color: "#27AE60" }}>subsidiebaas.com</a> voor een gratis subsidiecheck.
+              Bekijk ook <a href={utmLink("https://subsidiebaas.com", "klimaatbaas", "specialismen")} onClick={() => trackEvent("cta_click_subsidiebaas")} className="underline" style={{ color: "#27AE60" }}>subsidiebaas.com</a> voor een gratis subsidiecheck.
             </p>
-            <a href="https://warmtebaas.com" className="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
+            <a href={utmLink("https://warmtebaas.com", "klimaatbaas", "specialismen-warmtebaas")} onClick={() => trackEvent("cta_click_warmtebaas")} className="inline-flex items-center gap-2 text-red-600 font-semibold hover:gap-3 transition-all">
               Naar warmtebaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
@@ -141,7 +143,7 @@ function Specialismen() {
             <p className="text-gray-600 mb-6">
               Split en multi-split airconditioning. Koelen én verwarmen. Geplaatst binnen 2 weken, vanaf €1.800.
             </p>
-            <a href="https://aircobaas.com" className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
+            <a href={utmLink("https://aircobaas.com", "klimaatbaas", "specialismen-aircobaas")} onClick={() => trackEvent("cta_click_aircobaas")} className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all">
               Naar aircobaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
@@ -201,7 +203,7 @@ export default function KlimaatbaasPage() {
           { name: "bericht", label: "Bericht", type: "textarea", placeholder: "Waar kunnen wij u mee helpen?" },
         ]}
       />
-      <Footer primaryColor={config.colors.primary} links={[{ label: "warmtebaas.com", href: "https://warmtebaas.com" }, { label: "aircobaas.com", href: "https://aircobaas.com" }, { label: "subsidiebaas.com", href: "https://subsidiebaas.com" }]} />
+      <Footer primaryColor={config.colors.primary} links={[{ label: "warmtebaas.com", href: utmLink("https://warmtebaas.com", "klimaatbaas", "footer-link") }, { label: "aircobaas.com", href: utmLink("https://aircobaas.com", "klimaatbaas", "footer-link") }, { label: "subsidiebaas.com", href: utmLink("https://subsidiebaas.com", "klimaatbaas", "footer-link") }]} />
       <WhatsAppButton message="Hallo, ik heb een vraag" />
     </>
   );
