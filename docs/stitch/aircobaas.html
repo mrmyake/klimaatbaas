@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+.frost-gradient { background: linear-gradient(135deg, #00030a 0%, #004f58 100%); }
+.icy-card { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(12px); }
+</style>
+</head>
+<body class="bg-[#f8f9fa] text-[#191c1d] font-['Inter']">
+<!-- DESIGN NOTES FOR CC:
+  - Accent color: #00daf3 (icy cyan/teal)
+  - Dark hero with background image overlay + gradient from left
+  - Side graphic: concentric circles with pulse animation
+  - Bento features: 12-col grid (8+4 top, 4+8 bottom)
+  - Product cards: 3-column with aspect-video header, specs list, CTA button
+  - Stats section: asymmetric 2-col with numbered list (01, 02, 03)
+  - CTA: frost-gradient (dark to teal) with circle SVG overlay
+-->
+
+<nav class="bg-slate-50/80 backdrop-blur-xl sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+<div class="text-2xl font-black tracking-tighter uppercase">Klimaatbaas</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-950 border-b-2 border-slate-950 pb-1 font-black" href="#">Aircobaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Warmtebaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Subsidiebaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Over Ons</a>
+</div>
+<button class="bg-[#00030a] text-white px-6 py-2 rounded-lg font-bold hover:scale-95 transition-transform">Plan Advies</button>
+</div>
+</nav>
+
+<section class="relative min-h-[870px] flex items-center overflow-hidden bg-[#00030a]">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full bg-gradient-to-br from-slate-800 to-slate-900"><!-- TODO: achtergrond foto --></div>
+<div class="absolute inset-0 bg-gradient-to-r from-[#00030a] via-[#00030a]/80 to-transparent"></div>
+</div>
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="max-w-3xl">
+<span class="text-[#00daf3] font-bold tracking-[0.2em] uppercase text-xs mb-4 block">Gecertificeerde Koeltechniek</span>
+<h1 class="text-[clamp(3rem,8vw,5.5rem)] leading-[0.9] font-black tracking-tighter text-white mb-8">De Architect<br/>van Koelte.</h1>
+<p class="text-xl text-slate-300 max-w-xl mb-10 leading-relaxed">Altijd een perfect klimaat, zelfs tijdens de heetste dagen. Koelsystemen die onzichtbaar presteren.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-[#00daf3] text-[#00030a] px-8 py-4 rounded-lg font-black uppercase tracking-wider hover:brightness-110 transition-all shadow-lg shadow-[#00daf3]/20">Plan Advies</button>
+<button class="border border-white/20 text-white px-8 py-4 rounded-lg font-black uppercase tracking-wider hover:bg-white/10 transition-all">Ontdek Systemen</button>
+</div>
+</div>
+</div>
+<div class="hidden lg:block absolute right-0 top-1/2 -translate-y-1/2 w-1/3 aspect-square">
+<div class="relative w-full h-full">
+<div class="absolute inset-0 border-[40px] border-[#00daf3]/10 rounded-full animate-pulse"></div>
+<div class="absolute inset-10 border border-[#00daf3]/30 rounded-full"></div>
+<div class="absolute inset-20 icy-card border border-white/20 rounded-full flex items-center justify-center">
+<span class="text-[#00daf3] text-6xl">❄</span>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto">
+<div class="mb-20 text-right">
+<span class="text-[#00daf3] font-bold tracking-widest uppercase text-xs">Expertise</span>
+<h2 class="text-5xl font-black tracking-tight mt-2">Superieure Technologie</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<div class="md:col-span-8 bg-[#f3f4f5] rounded-lg p-12 relative overflow-hidden">
+<h3 class="text-3xl font-black mb-4">Fluisterstille Werking</h3>
+<p class="text-[#44474d] max-w-md text-lg">Aircosystemen onder de 19 decibel. U hoort de koelte niet, u voelt het alleen.</p>
+</div>
+<div class="md:col-span-4 bg-[#00030a] text-white rounded-lg p-12 flex flex-col justify-between">
+<h3 class="text-2xl font-black">A+++<br/>Efficiëntie</h3>
+<p class="text-slate-400 mt-4">Maximale koeling met minimaal energieverbruik.</p>
+</div>
+<div class="md:col-span-4 icy-card border border-slate-200 rounded-lg p-12">
+<h3 class="text-2xl font-black mb-4">Smart Control</h3>
+<p class="text-[#44474d]">Bedien uw klimaat overal via de app. Google Home en Alexa compatibel.</p>
+</div>
+<div class="md:col-span-8 bg-[#e1e3e4] rounded-lg p-12 flex items-center gap-12">
+<div class="flex-1">
+<h3 class="text-3xl font-black mb-4">Koelen én Verwarmen</h3>
+<p class="text-[#44474d] text-lg">Moderne airco's verwarmen ook tot -15°C. Ideaal voor tussenseizoen.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-32 px-8 bg-[#f3f4f5]">
+<div class="max-w-7xl mx-auto">
+<div class="mb-16">
+<span class="text-[#00daf3] font-bold tracking-widest uppercase text-xs">Onze Systemen</span>
+<h2 class="text-5xl font-black tracking-tight mt-2">Gecertificeerde Koelsystemen</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="bg-white rounded-lg overflow-hidden border border-slate-200 hover:shadow-2xl transition-all">
+<div class="aspect-video bg-gradient-to-br from-[#00daf3]/20 to-slate-100 relative">
+<span class="absolute bottom-4 left-4 bg-[#00030a]/90 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase">Bestseller</span>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-black mb-3">Single-Split</h3>
+<p class="text-[#44474d] text-sm mb-6">1 ruimte. Modern design, fluisterstil.</p>
+<div class="space-y-3 mb-8">
+<div class="text-sm font-medium">Capaciteit: 2.5kW - 5.0kW</div>
+<div class="text-sm font-medium">Geluid: Vanaf 19dB</div>
+<div class="text-sm font-bold text-green-600">Energielabel: A+++</div>
+</div>
+<div class="text-center text-2xl font-black mb-4">vanaf €1.800</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden border border-slate-200 hover:shadow-2xl transition-all">
+<div class="aspect-video bg-gradient-to-br from-[#00daf3]/20 to-slate-100"></div>
+<div class="p-8">
+<h3 class="text-2xl font-black mb-3">Multi-Split</h3>
+<p class="text-[#44474d] text-sm mb-6">2-3 ruimtes. Eén buitenunit, volledige controle.</p>
+<div class="space-y-3 mb-8">
+<div class="text-sm font-medium">Zones: 2-3 ruimtes</div>
+<div class="text-sm font-medium">Vermogen: Tot 12.0kW</div>
+<div class="text-sm font-bold text-green-600">Energielabel: A+++</div>
+</div>
+<div class="text-center text-2xl font-black mb-4">vanaf €3.500</div>
+</div>
+</div>
+<div class="bg-white rounded-lg overflow-hidden border border-slate-200 hover:shadow-2xl transition-all">
+<div class="aspect-video bg-gradient-to-br from-[#00daf3]/20 to-slate-100 relative">
+<span class="absolute bottom-4 left-4 bg-[#00daf3] text-[#00030a] text-[10px] font-bold px-3 py-1 rounded-full uppercase">Premium</span>
+</div>
+<div class="p-8">
+<h3 class="text-2xl font-black mb-3">Multi-Split 4+</h3>
+<p class="text-[#44474d] text-sm mb-6">4+ ruimtes. Hele woning klimaatbeheer.</p>
+<div class="space-y-3 mb-8">
+<div class="text-sm font-medium">Zones: 4+ ruimtes</div>
+<div class="text-sm font-medium">Luchtstroom: Dual flow</div>
+<div class="text-sm font-bold text-green-600">Energielabel: A+++</div>
+</div>
+<div class="text-center text-2xl font-black mb-4">vanaf €5.500</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-24 bg-white">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="relative">
+<div class="aspect-square bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg"><!-- TODO: foto --></div>
+<div class="absolute -bottom-8 -right-8 bg-[#00daf3] p-12 rounded-lg text-[#00030a]">
+<div class="text-5xl font-black">2 wk</div>
+<div class="text-sm font-bold uppercase tracking-widest mt-2">Levertijd</div>
+</div>
+</div>
+<div>
+<h2 class="text-4xl font-black tracking-tight mb-8">Waarom Aircobaas?</h2>
+<div class="space-y-12">
+<div class="flex gap-6">
+<div class="text-[#00daf3] font-black text-4xl">01</div>
+<div><h4 class="text-xl font-bold mb-2">Maatwerk Ontwerp</h4><p class="text-[#44474d]">Exact berekend wat uw ruimte nodig heeft.</p></div>
+</div>
+<div class="flex gap-6">
+<div class="text-[#00daf3] font-black text-4xl">02</div>
+<div><h4 class="text-xl font-bold mb-2">Snelle Installatie</h4><p class="text-[#44474d]">Binnen 2 weken geplaatst. Schoon en efficiënt.</p></div>
+</div>
+<div class="flex gap-6">
+<div class="text-[#00daf3] font-black text-4xl">03</div>
+<div><h4 class="text-xl font-bold mb-2">Nette Afwerking</h4><p class="text-[#44474d]">Kabelgoten op kleur, alles opgeruimd.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-32 px-8">
+<div class="max-w-7xl mx-auto frost-gradient rounded-lg p-16 text-center relative overflow-hidden">
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-black text-white mb-8 tracking-tighter">Klaar voor de zomer?</h2>
+<p class="text-white/70 text-xl mb-12 max-w-2xl mx-auto">Vraag vandaag nog een vrijblijvend adviesgesprek aan.</p>
+<button class="bg-white text-[#00030a] px-12 py-5 rounded-lg font-black uppercase tracking-widest hover:scale-105 transition-transform">Plan Adviesgesprek</button>
+</div>
+</div>
+</section>
+
+<footer class="bg-slate-50 border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-xl font-black uppercase">Aircobaas</span>
+<p class="text-sm text-slate-500">© 2026 Klimaatbaas B.V.</p>
+</div>
+</footer>
+</body></html>

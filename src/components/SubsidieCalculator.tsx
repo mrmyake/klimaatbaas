@@ -121,17 +121,20 @@ export default function SubsidieCalculator({
     >
       <div className="max-w-3xl mx-auto">
         {!isCompact && (
-          <h2 className="font-heading text-3xl font-bold text-center mb-4">
-            Hoeveel ISDE-subsidie krijgt u?
-          </h2>
+          <>
+            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 text-center">Calculator</p>
+            <h2 className="font-heading text-4xl font-black tracking-tight text-center mb-4">
+              Hoeveel ISDE-subsidie krijgt u?
+            </h2>
+          </>
         )}
         {!isCompact && (
-          <p className="text-gray-600 text-center mb-10">
+          <p className="text-[#44474d] text-lg text-center mb-10">
             Bereken uw indicatie in 2 minuten. Gratis en vrijblijvend.
           </p>
         )}
 
-        <div className="glass rounded-2xl p-8 space-y-8">
+        <div className="bg-white rounded-lg border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] p-8 space-y-8">
           {/* Stap 1: Type */}
           <div>
             <h3 className="font-semibold mb-4">

@@ -30,26 +30,29 @@ export default function FAQ({ items, primaryColor }: FAQProps) {
   };
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-24 px-6">
       <div className="max-w-3xl mx-auto">
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
-        <h2 className="font-heading text-3xl font-bold text-center mb-12">
+        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+          Veelgesteld
+        </p>
+        <h2 className="font-heading text-4xl font-black tracking-tight mb-12">
           Veelgestelde vragen
         </h2>
         <div className="space-y-3">
           {items.map((item, index) => (
             <div
               key={index}
-              className="glass rounded-xl overflow-hidden"
+              className="bg-white rounded-lg border border-slate-200 overflow-hidden shadow-[0_8px_24px_rgba(0,3,10,0.06)]"
             >
               <button
                 onClick={() =>
                   setOpenIndex(openIndex === index ? null : index)
                 }
-                className="w-full flex items-center justify-between p-5 text-left font-semibold hover:bg-white/50 transition-colors"
+                className="w-full flex items-center justify-between p-6 text-left font-bold hover:bg-slate-50 transition-colors"
                 aria-expanded={openIndex === index}
               >
                 <span>{item.vraag}</span>
@@ -61,11 +64,10 @@ export default function FAQ({ items, primaryColor }: FAQProps) {
                   aria-hidden="true"
                 />
               </button>
-              {/* Always render answer in DOM for crawlers, visually toggle */}
               <div
-                className={`px-5 text-gray-600 leading-relaxed transition-all ${
+                className={`px-6 text-[#44474d] leading-relaxed transition-all ${
                   openIndex === index
-                    ? "pb-5 max-h-96 opacity-100"
+                    ? "pb-6 max-h-96 opacity-100"
                     : "max-h-0 opacity-0 overflow-hidden"
                 }`}
               >

@@ -61,12 +61,13 @@ export default function WerkgebiedKaart({
   const serviceLabel = siteSlug ? serviceLabels[siteSlug] : undefined;
 
   return (
-    <section className="py-20 px-6 bg-gray-50/50">
-      <div className="max-w-5xl mx-auto text-center">
-        <h2 className="font-heading text-3xl font-bold mb-4">
+    <section className="py-24 px-6 bg-[#f3f4f5]">
+      <div className="max-w-7xl mx-auto text-center">
+        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Werkgebied</p>
+        <h2 className="font-heading text-4xl font-black tracking-tight mb-4">
           Ons werkgebied
         </h2>
-        <p className="text-gray-600 mb-10 max-w-2xl mx-auto">
+        <p className="text-[#44474d] text-lg mb-10 max-w-2xl mx-auto">
           Wij werken in heel Midden-Nederland. Van Utrecht tot Amersfoort, van
           Hilversum tot Woerden en alles daartussenin.
         </p>
@@ -82,7 +83,7 @@ export default function WerkgebiedKaart({
                 key={plaats}
                 id={id}
                 href={`#${id}`}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium bg-white shadow-sm border border-gray-100 hover:shadow-md transition-shadow"
+                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] hover:shadow-lg transition-shadow"
                 title={
                   serviceLabel
                     ? `${serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1)} in ${plaats}`

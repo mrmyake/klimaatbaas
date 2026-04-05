@@ -16,19 +16,19 @@ interface NavbarProps {
 
 export default function Navbar({ siteName, primaryColor, links }: NavbarProps) {
   return (
-    <nav className="sticky top-0 z-40 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-5xl mx-auto px-6 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-6">
-          <span className="font-heading font-bold text-lg" style={{ color: primaryColor }}>
+    <nav className="sticky top-0 z-40 bg-slate-50/80 backdrop-blur-xl border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-8">
+          <a href="/" className="font-heading text-xl font-black uppercase tracking-tighter" style={{ color: primaryColor }}>
             {siteName}
-          </span>
+          </a>
           {links && links.length > 0 && (
-            <div className="hidden md:flex items-center gap-4">
+            <div className="hidden md:flex items-center gap-6">
               {links.map((link) => (
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
                 >
                   {link.label}
                 </a>
@@ -38,8 +38,8 @@ export default function Navbar({ siteName, primaryColor, links }: NavbarProps) {
         </div>
         <a
           href="tel:+31629173468"
-          className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity"
-          style={{ color: primaryColor }}
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-white transition-all hover:scale-95"
+          style={{ backgroundColor: primaryColor }}
           onClick={() => trackEvent("phone_click", { location: "navbar" })}
         >
           <Phone className="w-4 h-4" aria-hidden="true" />

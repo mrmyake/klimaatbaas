@@ -101,9 +101,10 @@ export default function LeadForm({
   }
 
   return (
-    <section id="formulier" className="py-20 px-6">
+    <section id="formulier" className="py-24 px-6">
       <div className="max-w-xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-center mb-4">
+        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 text-center">Contact</p>
+        <h2 className="font-heading text-4xl font-black tracking-tight text-center mb-4">
           {title}
         </h2>
         <p className="text-center text-gray-500 mb-8 flex items-center justify-center gap-2">
@@ -120,7 +121,7 @@ export default function LeadForm({
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="glass rounded-2xl p-8 space-y-5"
+          className="bg-white rounded-lg border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] p-8 space-y-5"
         >
           {fields.map((field) => (
             <div key={field.name}>

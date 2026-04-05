@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<style>
+.architect-glow { box-shadow: 0 8px 24px rgba(0, 3, 10, 0.06); }
+</style>
+</head>
+<body class="bg-[#f8f9fa] text-[#191c1d] font-['Inter']">
+<!-- DESIGN NOTES FOR CC:
+  - Hero: 2-column grid, left text + right image, architectural lines as decoration
+  - Badge: small uppercase pill "THE CLIMATE ARCHITECT" 
+  - H1: 5rem font-black, "De Architect van Comfort."
+  - Two CTAs: filled dark + outlined
+  - Bento grid: 4-column 2-row grid for services (Aircobaas large left 2x2, Warmtebaas dark top-right, Subsidiebaas + Portfolio small bottom-right)
+  - Stats: 4-column with large numbers (REPLACE with honest stats)
+  - CTA section: dark bg with grid pattern overlay, large heading, two buttons
+  - Font: Inter, weights 400/500/700/900
+  - Colors: primary #00030a (near-black), surface #f8f9fa, muted #44474d
+  - Border radius: 0.5rem (lg)
+  - Grayscale images with hover scale effect
+-->
+
+<header class="bg-slate-50/80 backdrop-blur-xl sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+<a class="text-2xl font-black tracking-tighter uppercase" href="#">Klimaatbaas</a>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Aircobaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Warmtebaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Subsidiebaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Over Ons</a>
+</nav>
+<button class="bg-[#00030a] text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:scale-95 transition-transform">Plan Advies</button>
+</div>
+</header>
+
+<section class="relative min-h-[870px] flex items-center overflow-hidden pt-20">
+<div class="max-w-7xl mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-7 z-10">
+<span class="inline-block px-3 py-1 bg-[#e1e3e4] rounded-full text-xs font-bold tracking-widest uppercase mb-6">Verwarmt. Koelt. Ontzorgd.</span>
+<h1 class="text-[3.5rem] md:text-[5rem] font-black leading-[0.95] tracking-tight mb-8">De Architect<br/>van Comfort.</h1>
+<p class="text-lg md:text-xl text-[#44474d] max-w-xl leading-relaxed mb-10">Professionele klimaatbeheersing voor woningen. Wij ontwerpen systemen die niet alleen koelen of verwarmen, maar uw leefomgeving perfectioneren.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-[#00030a] text-white px-10 py-4 rounded-lg font-black text-lg flex items-center gap-3 architect-glow hover:-translate-y-0.5 transition-all">Plan Advies →</button>
+<button class="border-2 border-slate-200 px-10 py-4 rounded-lg font-bold text-lg hover:bg-slate-50 transition-colors">Onze Projecten</button>
+</div>
+</div>
+<div class="lg:col-span-5 relative">
+<div class="relative w-full aspect-[4/5] rounded-lg overflow-hidden architect-glow bg-gradient-to-br from-slate-200 to-slate-400"><!-- TODO: foto --></div>
+<div class="absolute -top-12 -right-12 w-48 h-48 border-t-2 border-r-2 border-black/10 -z-10"></div>
+<div class="absolute -bottom-12 -left-12 w-64 h-64 border-b-2 border-l-2 border-black/10 -z-10"></div>
+</div>
+</div>
+</section>
+
+<section class="py-32 bg-[#f3f4f5]">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="text-xs font-bold tracking-widest uppercase text-[#75777e] mb-3 block">Expertise</span>
+<h2 class="text-4xl font-black tracking-tight">Onze Domeinen</h2>
+</div>
+<p class="text-[#44474d] max-w-sm">Geïntegreerde oplossingen voor elk facet van uw binnenklimaat.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-4 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-white rounded-lg p-10 flex flex-col justify-between group cursor-pointer hover:bg-slate-50 transition-colors architect-glow">
+<div>
+<h3 class="text-3xl font-black mb-4">Aircobaas</h3>
+<p class="text-[#44474d] mb-8">Ultieme koeling met fluisterstille technologie.</p>
+</div>
+<div class="rounded-lg h-48 bg-gradient-to-br from-blue-100 to-blue-200 mb-4"><!-- TODO: foto --></div>
+<div class="flex items-center gap-2 font-bold group-hover:translate-x-2 transition-transform">Ontdek Aircobaas →</div>
+</div>
+<div class="md:col-span-2 md:row-span-1 bg-[#00030a] text-white rounded-lg p-8 flex items-center justify-between group cursor-pointer overflow-hidden relative">
+<div class="relative z-10 max-w-[60%]">
+<h3 class="text-2xl font-black mb-2">Warmtebaas</h3>
+<p class="text-white/70 text-sm">Duurzame warmtepompen en hybride systemen.</p>
+</div>
+<div class="relative z-10 p-3 bg-white/10 rounded-lg group-hover:bg-white/20 transition-colors">→</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 bg-[#e1e3e4] rounded-lg p-8 flex flex-col justify-between group cursor-pointer">
+<div>
+<h3 class="text-xl font-black">Subsidiebaas</h3>
+<p class="text-xs text-[#44474d] mt-2">Optimaliseer uw investering.</p>
+</div>
+</div>
+<div class="md:col-span-1 md:row-span-1 bg-white border border-slate-100 rounded-lg p-8 flex flex-col justify-between group cursor-pointer hover:border-slate-300 transition-all">
+<div>
+<h3 class="text-xl font-black">Portfolio</h3>
+<p class="text-xs text-[#44474d] mt-2">Bekijk onze realisaties.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="py-24 bg-white border-y border-slate-100">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12">
+<!-- DESIGN: large bold stats in a row -->
+<div><p class="text-5xl font-black mb-2">✓</p><p class="text-xs font-bold tracking-widest uppercase text-[#75777e]">F-gassen Gecertificeerd</p></div>
+<div><p class="text-5xl font-black mb-2">♦</p><p class="text-xs font-bold tracking-widest uppercase text-[#75777e]">Regio Midden-Nederland</p></div>
+<div><p class="text-5xl font-black mb-2">5.0</p><p class="text-xs font-bold tracking-widest uppercase text-[#75777e]">Google Reviews</p></div>
+<div><p class="text-5xl font-black mb-2">100%</p><p class="text-xs font-bold tracking-widest uppercase text-[#75777e]">Subsidie Geregeld</p></div>
+</div>
+</section>
+
+<section class="py-32 overflow-hidden">
+<div class="max-w-7xl mx-auto px-8">
+<div class="bg-[#00030a] rounded-lg p-12 md:p-24 relative overflow-hidden architect-glow">
+<div class="absolute top-0 right-0 w-1/2 h-full opacity-10 pointer-events-none">
+<svg class="w-full h-full" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(#grid)"/></svg>
+</div>
+<div class="relative z-10 max-w-2xl">
+<h2 class="text-4xl md:text-6xl font-black text-white mb-8 leading-tight">Klaar voor de volgende stap in comfort?</h2>
+<p class="text-white/60 text-lg mb-12 max-w-lg">Ontvang een vrijblijvend adviesgesprek op locatie.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<button class="bg-white text-[#00030a] px-10 py-4 rounded-lg font-black text-lg hover:bg-slate-100 transition-colors">Plan Uw Advies</button>
+<button class="text-white border border-white/20 px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">Bel Direct: +31 6 2917 3468</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="bg-slate-50 border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-xl font-black uppercase">Klimaatbaas</span>
+<p class="text-sm text-slate-500">© 2026 Klimaatbaas B.V. Verwarmt. Koelt. Ontzorgd.</p>
+</div>
+</footer>
+</body></html>

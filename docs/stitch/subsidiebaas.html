@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html class="light" lang="nl"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+</head>
+<body class="bg-[#f8f9fa] text-[#191c1d] font-['Inter']">
+<!-- DESIGN NOTES FOR CC:
+  - Accent: emerald #065f46 (forest green), gold #d4af37
+  - Hero: full-width, large text left-aligned, growth lines SVG background
+  - Badge: "DE ARCHITECT VAN RENDEMENT." in emerald
+  - Stats bento: 4-column grid (2-col large savings stat, dark verified card, ISDE card)
+  - Feature section: 2-column asymmetric, image left with glass overlay panel, features right with icons
+  - CTA: dark bg with large euro symbol overlay
+  - SVG growth lines: diagonal curves in emerald and gold, subtle gradient fill
+-->
+
+<nav class="bg-slate-50/80 backdrop-blur-xl sticky top-0 z-50">
+<div class="max-w-7xl mx-auto px-8 py-4 flex items-center justify-between">
+<div class="text-2xl font-black tracking-tighter uppercase">Klimaatbaas</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Aircobaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Warmtebaas</a>
+<a class="text-slate-950 border-b-2 border-slate-950 pb-1 font-medium" href="#">Subsidiebaas</a>
+<a class="text-slate-500 font-medium hover:text-slate-950 transition-colors" href="#">Over Ons</a>
+</div>
+<button class="bg-[#00030a] text-white px-6 py-2.5 rounded-lg font-bold hover:scale-95 transition-transform">Plan Advies</button>
+</div>
+</nav>
+
+<section class="relative min-h-[870px] flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-bl from-[#065f46]/5 to-transparent opacity-50"></div>
+<svg class="absolute bottom-0 right-0 w-full h-[500px] opacity-20" fill="none" viewBox="0 0 1000 500">
+<path d="M0 450C150 430 300 200 450 150C600 100 800 50 1000 20" stroke="#065f46" stroke-width="2"/>
+<path d="M0 480C200 460 400 300 600 250C800 200 900 150 1000 100" stroke="#d4af37" stroke-width="2"/>
+</svg>
+</div>
+<div class="max-w-7xl mx-auto px-8 w-full relative z-10">
+<div class="max-w-4xl">
+<span class="text-[#065f46] font-bold tracking-widest uppercase text-xs block mb-4">DE ARCHITECT VAN RENDEMENT.</span>
+<h1 class="text-6xl md:text-8xl font-black leading-[0.9] tracking-tighter mb-8">Haal het maximale<br/>uit uw investering.</h1>
+<p class="text-lg md:text-xl text-[#44474d] max-w-xl mb-10 leading-relaxed">Wij navigeren door het complexe landschap van subsidies zodat u profiteert van de hoogste rendementen.</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-[#00030a] text-white px-8 py-4 rounded-lg font-bold text-lg hover:scale-95 transition-transform flex items-center gap-2">Bereken Subsidie →</button>
+<button class="border border-slate-200 px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#f3f4f5] transition-all">Ontdek Subsidies</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-8 py-24">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<div class="md:col-span-2 bg-[#f3f4f5] p-10 rounded-lg flex flex-col justify-between h-[320px]">
+<span class="text-[#065f46] text-4xl">📈</span>
+<div>
+<h3 class="text-4xl font-black mb-2">€500M</h3>
+<p class="text-[#44474d] font-medium">ISDE-budget 2026 beschikbaar. Op is op.</p>
+</div>
+</div>
+<div class="bg-[#00030a] text-white p-10 rounded-lg flex flex-col justify-between h-[320px]">
+<span class="text-4xl">✓</span>
+<div>
+<h3 class="text-4xl font-black mb-2">100%</h3>
+<p class="text-slate-400 font-medium">Wij regelen uw volledige ISDE-aanvraag.</p>
+</div>
+</div>
+<div class="bg-[#e1e3e4] p-10 rounded-lg flex flex-col justify-between h-[320px]">
+<span class="text-[#d4af37] text-4xl">€</span>
+<div>
+<h3 class="text-4xl font-black">ISDE</h3>
+<p class="text-[#44474d] font-medium">Direct inzicht in uw subsidiebedrag.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="bg-[#f3f4f5] py-32">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="aspect-square bg-[#e1e3e4] rounded-lg overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-br from-slate-200 to-slate-300"><!-- TODO: foto --></div>
+<div class="absolute inset-0 p-12 flex flex-col justify-end bg-gradient-to-t from-[#064e3b]/80 to-transparent">
+<h4 class="text-white text-3xl font-black mb-2">Gegarandeerd Resultaat.</h4>
+<p class="text-emerald-200 font-medium">Volledige administratieve last uit handen.</p>
+</div>
+</div>
+<div class="absolute -top-10 -right-10 bg-white/70 backdrop-blur-xl p-8 rounded-lg border border-white/20 shadow-xl hidden md:block">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 bg-[#065f46] rounded-full flex items-center justify-center text-white">✓</div>
+<div>
+<p class="text-xs font-bold text-[#44474d] uppercase tracking-widest">Precision Audit</p>
+<p class="text-lg font-black">0% Foutmarge</p>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-5xl font-black leading-tight mb-8">De architectuur achter uw besparing.</h2>
+<div class="space-y-10">
+<div class="flex gap-6">
+<span class="text-[#065f46] text-3xl">📊</span>
+<div><h5 class="text-xl font-bold mb-2">Diepgaande Analyse</h5><p class="text-[#44474d] leading-relaxed">Alle beschikbare ISDE-subsidies voor uw specifieke situatie.</p></div>
+</div>
+<div class="flex gap-6">
+<span class="text-[#065f46] text-3xl">📋</span>
+<div><h5 class="text-xl font-bold mb-2">Dossier Optimalisatie</h5><p class="text-[#44474d] leading-relaxed">Aanvraag volgens strengste richtlijnen om afwijzing te voorkomen.</p></div>
+</div>
+<div class="flex gap-6">
+<span class="text-[#065f46] text-3xl">💰</span>
+<div><h5 class="text-xl font-bold mb-2">Directe Uitbetaling</h5><p class="text-[#44474d] leading-relaxed">Wij monitoren tot het bedrag op uw rekening staat.</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="max-w-7xl mx-auto px-8 py-32 text-center">
+<div class="bg-[#00030a] p-20 rounded-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 p-10 opacity-10 text-[200px] text-white">€</div>
+<div class="relative z-10">
+<h2 class="text-5xl md:text-7xl font-black text-white mb-8 leading-[0.9]">Klaar voor maximaal<br/>rendement?</h2>
+<p class="text-slate-400 text-xl max-w-2xl mx-auto mb-12">Onze adviseurs staan klaar om elke subsidie-euro te verzilveren.</p>
+<button class="bg-white text-[#00030a] px-12 py-5 rounded-lg font-bold text-xl hover:scale-95 transition-transform">Plan nu uw gratis adviesgesprek</button>
+</div>
+</div>
+</section>
+
+<footer class="bg-slate-50 border-t border-slate-200">
+<div class="max-w-7xl mx-auto px-8 py-12 flex flex-col md:flex-row justify-between items-center gap-6">
+<span class="text-xl font-black uppercase">Subsidiebaas</span>
+<p class="text-sm text-slate-500">© 2026 Klimaatbaas B.V.</p>
+</div>
+</footer>
+</body></html>

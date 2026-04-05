@@ -10,27 +10,30 @@ interface FooterProps {
 
 export default function Footer({ links, primaryColor }: FooterProps) {
   return (
-    <footer className="bg-gray-900 text-gray-400 py-12 px-6">
-      <div className="max-w-5xl mx-auto text-center">
-        <p className="font-heading text-white font-bold text-lg mb-4">
-          Klimaatbaas B.V.
-        </p>
-        <p className="mb-6">Midden-Nederland</p>
-        <div className="flex flex-wrap justify-center gap-6 mb-6">
-          {links.map((link) => (
-            <a
-              key={link.label}
-              href={link.href}
-              className="hover:text-white transition-colors"
-              style={{ ["--hover-color" as string]: primaryColor }}
-            >
-              {link.label}
-            </a>
-          ))}
+    <footer className="bg-slate-50 border-t border-slate-200 py-12 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <p className="font-heading text-xl font-black uppercase tracking-tighter" style={{ color: primaryColor }}>
+              Klimaatbaas B.V.
+            </p>
+            <p className="text-sm text-gray-500 mt-1">Midden-Nederland</p>
+          </div>
+          <div className="flex flex-wrap justify-center gap-6">
+            {links.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+          <p className="text-xs text-gray-400">
+            © {new Date().getFullYear()} Klimaatbaas B.V.
+          </p>
         </div>
-        <p className="text-sm text-gray-500">
-          Onderdeel van Klimaatbaas B.V.
-        </p>
       </div>
     </footer>
   );

@@ -14,35 +14,36 @@ interface ReviewsProps {
 
 export default function Reviews({ reviews, primaryColor }: ReviewsProps) {
   return (
-    <section className="py-20 px-6 bg-gray-50/50">
-      <div className="max-w-5xl mx-auto">
-        <h2 className="font-heading text-3xl font-bold text-center mb-12">
+    <section className="py-24 px-6 bg-[#f3f4f5]">
+      <div className="max-w-7xl mx-auto">
+        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+          Ervaringen
+        </p>
+        <h2 className="font-heading text-4xl font-black tracking-tight mb-12">
           Wat onze klanten zeggen
         </h2>
         <div className="grid md:grid-cols-3 gap-8">
           {reviews.map((review) => (
             <div
               key={review.naam}
-              className="glass rounded-2xl p-8"
+              className="bg-white rounded-lg p-8 shadow-[0_8px_24px_rgba(0,3,10,0.06)]"
             >
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: review.sterren }).map((_, i) => (
                   <Star
                     key={i}
-                    className="w-5 h-5 fill-current"
+                    className="w-4 h-4 fill-current"
                     style={{ color: primaryColor }}
                   />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 leading-relaxed italic">
+              <p className="text-[#44474d] mb-6 leading-relaxed">
                 &ldquo;{review.tekst}&rdquo;
               </p>
-              <p className="font-semibold text-sm">
-                {review.naam},{" "}
-                <span className="text-gray-500 font-normal">
-                  {review.plaats}
-                </span>
-              </p>
+              <div>
+                <p className="font-bold text-sm">{review.naam}</p>
+                <p className="text-xs text-gray-500">{review.plaats}</p>
+              </div>
             </div>
           ))}
         </div>
