@@ -26,10 +26,10 @@ export const sites: Record<SiteKey, SiteConfig> = {
     description:
       "Advies, installatie en subsidie-ontzorging voor warmtepompen in Midden-Nederland",
     colors: {
-      primary: "#C0392B",
+      primary: "#E05E28",
       primaryDark: "#96281B",
-      accent: "#E74C3C",
-      bg: "#FFF5F5",
+      accent: "#E05E28",
+      bg: "#FFF8F4",
       text: "#1A1A1A",
     },
     og: {
@@ -45,11 +45,11 @@ export const sites: Record<SiteKey, SiteConfig> = {
     description:
       "Split en multi-split airconditioning met verwarmingsfunctie. Snel, netjes, vakkundig.",
     colors: {
-      primary: "#2980B9",
-      primaryDark: "#1A5276",
-      accent: "#3498DB",
-      bg: "#F0F8FF",
-      text: "#1A1A1A",
+      primary: "#00030a",
+      primaryDark: "#001a20",
+      accent: "#00daf3",
+      bg: "#00030a",
+      text: "#ffffff",
     },
     og: {
       title: "Aircobaas | Airco laten plaatsen in Midden-Nederland",
@@ -64,11 +64,11 @@ export const sites: Record<SiteKey, SiteConfig> = {
     description:
       "Uw totaalpartner voor warmtepompen, airconditioning en klimaatcomfort in Midden-Nederland.",
     colors: {
-      primary: "#1B4F72",
-      primaryDark: "#0E2F44",
-      accent: "#2E86C1",
-      bg: "#F8FBFE",
-      text: "#1A1A1A",
+      primary: "#00030a",
+      primaryDark: "#000000",
+      accent: "#00daf3",
+      bg: "#00030a",
+      text: "#ffffff",
     },
     og: {
       title: "Klimaatbaas | Warmtepompen & Airconditioning Midden-Nederland",
@@ -83,10 +83,10 @@ export const sites: Record<SiteKey, SiteConfig> = {
     description:
       "Gratis subsidiecheck voor warmtepompen en isolatie. ISDE, meldcodes en aanvraagbegeleiding.",
     colors: {
-      primary: "#27AE60",
-      primaryDark: "#1E8449",
-      accent: "#2ECC71",
-      bg: "#F0FFF4",
+      primary: "#065f46",
+      primaryDark: "#064e3b",
+      accent: "#d4af37",
+      bg: "#F4F9F6",
       text: "#1A1A1A",
     },
     og: {

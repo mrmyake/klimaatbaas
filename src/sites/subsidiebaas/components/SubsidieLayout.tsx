@@ -23,6 +23,8 @@ export default function SubsidieLayout({ children, breadcrumb, slug }: SubsidieL
       <Navbar
         siteName="Subsidiebaas"
         primaryColor={config.colors.primary}
+        accentColor={config.colors.primary}
+        borderColor={config.colors.primary}
         links={[
           { label: "Subsidie Berekenen", href: "/subsidie-berekenen" },
           { label: "ISDE 2026", href: "/isde-subsidie-2026" },
@@ -86,6 +88,7 @@ export default function SubsidieLayout({ children, breadcrumb, slug }: SubsidieL
       <VerifiedBy />
       <Footer
         primaryColor={config.colors.primary}
+        accentColor={config.colors.primary}
         links={[
           { label: "Subsidie berekenen", href: "/subsidie-berekenen" },
           { label: "ISDE 2026 overzicht", href: "/isde-subsidie-2026" },

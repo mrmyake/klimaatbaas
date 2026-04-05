@@ -7,7 +7,6 @@ import WerkgebiedKaart from "@/components/WerkgebiedKaart";
 import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { sites } from "@/lib/sites";
 import { utmLink } from "@/lib/utm";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -20,27 +19,24 @@ import {
   ArrowRight,
   Award,
   Star,
-  Globe,
-  BadgeCheck,
   FileSpreadsheet,
 } from "lucide-react";
 
-const config = sites.klimaatbaas;
 
 /* ─── Hero ─── */
 function HeroSection() {
   return (
-    <section className="min-h-[700px] px-6 py-24 lg:py-32">
+    <section className="min-h-[700px] px-6 py-24 lg:py-32 bg-[#00030a]">
       <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         {/* Left */}
         <div className="lg:col-span-7">
-          <span className="inline-block px-3 py-1 bg-[#e1e3e4] rounded-full text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">
+          <span className="inline-block px-3 py-1 bg-white/10 rounded-full text-xs font-bold uppercase tracking-widest text-[#00daf3] mb-4">
             Klimaatbaas B.V.
           </span>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.95] mb-6">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.95] mb-6 text-white">
             Warmtepompen &amp; Airconditioning in Midden-Nederland
           </h1>
-          <p className="text-lg text-[#44474d] leading-relaxed mb-8 max-w-xl">
+          <p className="text-lg text-white/60 leading-relaxed mb-8 max-w-xl">
             Klimaatbaas is uw totaalpartner voor warmtepompen en airconditioning.
             Verwarmt. Koelt. Ontzorgd.
           </p>
@@ -48,8 +44,7 @@ function HeroSection() {
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "hero-warmtepomp")}
               onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#C0392B" }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-90 bg-[#C0392B]"
             >
               <Flame className="w-4 h-4" aria-hidden="true" />
               Warmtepomp
@@ -58,8 +53,7 @@ function HeroSection() {
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "hero-airco")}
               onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-90"
-              style={{ backgroundColor: "#2980B9" }}
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-[#00030a] font-semibold transition-opacity hover:opacity-90 bg-[#00daf3]"
             >
               <Snowflake className="w-4 h-4" aria-hidden="true" />
               Airconditioning
@@ -70,12 +64,12 @@ function HeroSection() {
 
         {/* Right */}
         <div className="lg:col-span-5 relative">
-          <div className="aspect-[4/5] bg-gradient-to-br from-slate-200 to-slate-400 rounded-lg">
+          <div className="aspect-[4/5] bg-gradient-to-br from-slate-800 to-slate-700 rounded-lg">
             {/* TODO: foto */}
           </div>
           {/* Decorative borders */}
-          <div className="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-slate-200 rounded-tr-lg pointer-events-none" />
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 border-b-2 border-l-2 border-slate-200 rounded-bl-lg pointer-events-none" />
+          <div className="absolute -top-4 -right-4 w-32 h-32 border-t-2 border-r-2 border-white/10 rounded-tr-lg pointer-events-none" />
+          <div className="absolute -bottom-4 -left-4 w-32 h-32 border-b-2 border-l-2 border-white/10 rounded-bl-lg pointer-events-none" />
         </div>
       </div>
     </section>
@@ -85,40 +79,38 @@ function HeroSection() {
 /* ─── Direct Answer ─── */
 function DirectAnswer() {
   return (
-    <section className="direct-answer py-16 px-6 bg-slate-50/50">
+    <section className="direct-answer py-16 px-6 bg-white/5">
       <div className="max-w-3xl mx-auto">
-        <h2 className="text-2xl font-bold mb-6">
+        <h2 className="text-2xl font-bold mb-6 text-white">
           Warmtepomp of airco laten plaatsen in Midden-Nederland
         </h2>
-        <div className="space-y-4 text-gray-700 leading-relaxed">
+        <div className="space-y-4 text-white/60 leading-relaxed">
           <p>
-            <strong>Wie is Klimaatbaas?</strong> Klimaatbaas B.V. is een
+            <strong className="text-white/80">Wie is Klimaatbaas?</strong> Klimaatbaas B.V. is een
             installatiebedrijf in Midden-Nederland, gespecialiseerd in warmtepompen
             en airconditioning. Wij werken met twee specialistenteams: Warmtebaas
             voor warmtepompen en Aircobaas voor airconditioning.
           </p>
           <p>
-            <strong>Warmtepomp nodig?</strong> Hybride warmtepompen vanaf €4.500, met
-            tot €4.400 ISDE-subsidie.{" "}
+            <strong className="text-white/80">Warmtepomp nodig?</strong> Hybride warmtepompen vanaf &euro;4.500, met
+            tot &euro;4.400 ISDE-subsidie.{" "}
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "direct-answer")}
               onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="underline font-semibold"
-              style={{ color: "#C0392B" }}
+              className="underline font-semibold text-[#C0392B]"
             >
-              Bekijk warmtebaas.com →
+              Bekijk warmtebaas.com &rarr;
             </a>
           </p>
           <p>
-            <strong>Airco nodig?</strong> Single split vanaf €1.800, geplaatst
+            <strong className="text-white/80">Airco nodig?</strong> Single split vanaf &euro;1.800, geplaatst
             binnen 2 weken.{" "}
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "direct-answer")}
               onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="underline font-semibold"
-              style={{ color: "#2980B9" }}
+              className="underline font-semibold text-[#00daf3]"
             >
-              Bekijk aircobaas.com →
+              Bekijk aircobaas.com &rarr;
             </a>
           </p>
         </div>
@@ -132,19 +124,18 @@ function WieZijnWij() {
   return (
     <section className="py-20 px-6">
       <div className="max-w-3xl mx-auto text-center">
-        <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 block">
+        <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4 block">
           Over ons
         </span>
-        <h2 className="text-4xl font-black tracking-tight mb-6">Wie zijn wij</h2>
-        <p className="text-lg text-[#44474d] leading-relaxed">
+        <h2 className="text-4xl font-black tracking-tight mb-6 text-white">Wie zijn wij</h2>
+        <p className="text-lg text-white/60 leading-relaxed">
           Klimaatbaas B.V. is een installatiebedrijf in Midden-Nederland,
           gespecialiseerd in warmtepompen en airconditioning. Wij werken met twee
           specialistenteams:{" "}
           <a
             href={utmLink("https://warmtebaas.com", "klimaatbaas", "wie-zijn-wij")}
             onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="underline font-semibold"
-            style={{ color: "#C0392B" }}
+            className="underline font-semibold text-[#C0392B]"
           >
             Warmtebaas
           </a>{" "}
@@ -152,8 +143,7 @@ function WieZijnWij() {
           <a
             href={utmLink("https://aircobaas.com", "klimaatbaas", "wie-zijn-wij")}
             onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="underline font-semibold"
-            style={{ color: "#2980B9" }}
+            className="underline font-semibold text-[#00daf3]"
           >
             Aircobaas
           </a>{" "}
@@ -173,15 +163,15 @@ function OverOns() {
   ];
 
   return (
-    <section className="py-20 px-6 bg-[#f3f4f5]">
+    <section className="py-20 px-6 bg-white/[0.03]">
       <div className="max-w-3xl mx-auto">
-        <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 block text-center">
+        <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4 block text-center">
           Kwaliteit
         </span>
-        <h2 className="text-4xl font-black tracking-tight text-center mb-6">
+        <h2 className="text-4xl font-black tracking-tight text-center mb-6 text-white">
           Persoonlijke aanpak
         </h2>
-        <p className="text-lg text-[#44474d] leading-relaxed text-center mb-10">
+        <p className="text-lg text-white/60 leading-relaxed text-center mb-10">
           Klimaatbaas is opgericht vanuit de overtuiging dat de overstap naar
           duurzaam verwarmen en koelen eenvoudiger en persoonlijker kan. Wij zijn
           geen callcenter of landelijke keten. U spreekt direct met de eigenaar,
@@ -193,14 +183,13 @@ function OverOns() {
           {certificeringen.map((c) => (
             <div
               key={c.label}
-              className="bg-white rounded-lg p-5 text-center shadow-[0_8px_24px_rgba(0,3,10,0.06)]"
+              className="bg-white/5 border border-white/10 rounded-lg p-5 text-center"
             >
               <c.icon
-                className="w-8 h-8 mx-auto mb-3"
-                style={{ color: config.colors.primary }}
+                className="w-8 h-8 mx-auto mb-3 text-[#00daf3]"
                 aria-hidden="true"
               />
-              <p className="font-semibold text-sm">{c.label}</p>
+              <p className="font-semibold text-sm text-white">{c.label}</p>
             </div>
           ))}
         </div>
@@ -212,83 +201,83 @@ function OverOns() {
 /* ─── Bento Grid: Onze Specialismen ─── */
 function Specialismen() {
   return (
-    <section className="py-32 px-6 bg-[#f3f4f5]">
+    <section className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <span className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 block">
+        <span className="text-xs font-bold uppercase tracking-widest text-white/40 mb-4 block">
           Wat wij doen
         </span>
-        <h2 className="text-4xl font-black tracking-tight mb-12">
+        <h2 className="text-4xl font-black tracking-tight mb-12 text-white">
           Onze Specialismen
         </h2>
 
         <div className="grid md:grid-cols-4 auto-rows-[minmax(200px,auto)] gap-6">
           {/* Card 1 — Aircobaas (large) */}
-          <div className="md:col-span-2 md:row-span-2 bg-white rounded-lg p-10 shadow-[0_8px_24px_rgba(0,3,10,0.06)]">
-            <div className="h-48 rounded-lg mb-6 bg-gradient-to-br from-blue-200 to-blue-400">
+          <div className="md:col-span-2 md:row-span-2 bg-white/5 border border-white/10 rounded-lg p-10">
+            <div className="h-48 rounded-lg mb-6 bg-gradient-to-br from-slate-800 to-slate-700">
               {/* TODO: foto */}
             </div>
             <div className="flex items-center gap-3 mb-3">
-              <Snowflake className="w-6 h-6 text-blue-600" aria-hidden="true" />
-              <h3 className="text-xl font-bold">Aircobaas — Airconditioning</h3>
+              <Snowflake className="w-6 h-6 text-[#00daf3]" aria-hidden="true" />
+              <h3 className="text-xl font-bold text-white">Aircobaas — Airconditioning</h3>
             </div>
-            <p className="text-[#44474d] leading-relaxed mb-6">
+            <p className="text-white/60 leading-relaxed mb-6">
               Split en multi-split airconditioning. Koelen én verwarmen. Geplaatst
-              binnen 2 weken, vanaf €1.800.
+              binnen 2 weken, vanaf &euro;1.800.
             </p>
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "specialismen-aircobaas")}
               onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-[#00daf3] font-semibold hover:gap-3 transition-all"
             >
               Naar aircobaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
 
-          {/* Card 2 — Warmtebaas (dark) */}
-          <div className="md:col-span-2 md:row-span-1 bg-[#00030a] text-white rounded-lg p-8 shadow-[0_8px_24px_rgba(0,3,10,0.06)]">
+          {/* Card 2 — Warmtebaas */}
+          <div className="md:col-span-2 md:row-span-1 bg-[#E05E28] text-white rounded-lg p-8">
             <div className="flex items-center gap-3 mb-3">
-              <Flame className="w-6 h-6 text-red-400" aria-hidden="true" />
+              <Flame className="w-6 h-6 text-white/80" aria-hidden="true" />
               <h3 className="text-xl font-bold">Warmtebaas — Warmtepompen</h3>
             </div>
-            <p className="text-white/70 leading-relaxed mb-4">
+            <p className="text-white/80 leading-relaxed mb-4">
               Hybride en all-electric warmtepompen. Inclusief subsidie-ontzorging.
-              Prijzen vanaf €4.500, met tot €4.400 ISDE-subsidie.
+              Prijzen vanaf &euro;4.500, met tot &euro;4.400 ISDE-subsidie.
             </p>
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "specialismen-warmtebaas")}
               onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 text-red-400 font-semibold hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-white font-semibold hover:gap-3 transition-all"
             >
               Naar warmtebaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
 
           {/* Card 3 — Subsidiebaas */}
-          <div className="md:col-span-1 md:row-span-1 bg-[#e1e3e4] rounded-lg p-6 shadow-[0_8px_24px_rgba(0,3,10,0.06)]">
+          <div className="md:col-span-1 md:row-span-1 bg-white/10 rounded-lg p-6">
             <div className="flex items-center gap-2 mb-3">
-              <FileSpreadsheet className="w-5 h-5 text-green-700" aria-hidden="true" />
-              <h3 className="text-lg font-bold">Subsidiebaas</h3>
+              <FileSpreadsheet className="w-5 h-5 text-[#00daf3]" aria-hidden="true" />
+              <h3 className="text-lg font-bold text-white">Subsidiebaas</h3>
             </div>
-            <p className="text-[#44474d] text-sm leading-relaxed mb-4">
+            <p className="text-white/60 text-sm leading-relaxed mb-4">
               Gratis subsidiecheck. Volledige ISDE-aanvraag, u hoeft niets te doen.
             </p>
             <a
               href={utmLink("https://subsidiebaas.com", "klimaatbaas", "specialismen-subsidiebaas")}
               onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm hover:gap-3 transition-all"
+              className="inline-flex items-center gap-2 text-[#00daf3] font-semibold text-sm hover:gap-3 transition-all"
             >
               subsidiebaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </a>
           </div>
 
           {/* Card 4 — Werkgebied */}
-          <div className="md:col-span-1 md:row-span-1 bg-white border border-slate-200 rounded-lg p-6 shadow-[0_8px_24px_rgba(0,3,10,0.06)]">
-            <MapPin className="w-5 h-5 mb-3" style={{ color: config.colors.primary }} aria-hidden="true" />
-            <p className="text-3xl font-black mb-1">30+</p>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-2">
+          <div className="md:col-span-1 md:row-span-1 bg-white/5 border border-white/10 rounded-lg p-6">
+            <MapPin className="w-5 h-5 mb-3 text-[#00daf3]" aria-hidden="true" />
+            <p className="text-3xl font-black mb-1 text-white">30+</p>
+            <p className="text-xs font-bold uppercase tracking-widest text-white/40 mb-2">
               plaatsen
             </p>
-            <p className="text-[#44474d] text-sm leading-relaxed">
+            <p className="text-white/60 text-sm leading-relaxed">
               Regio Utrecht
             </p>
           </div>
@@ -301,21 +290,21 @@ function Specialismen() {
 /* ─── Stats ─── */
 function StatsSection() {
   const stats = [
-    { symbol: <BadgeCheck className="w-10 h-10 mx-auto" />, label: "F-gassen Gecertificeerd" },
-    { symbol: <Globe className="w-10 h-10 mx-auto" />, label: "Regio Midden-Nederland" },
-    { symbol: <Star className="w-10 h-10 mx-auto" />, label: "5.0 \u2605 Google Reviews" },
-    { symbol: <FileCheck className="w-10 h-10 mx-auto" />, label: "Subsidie Geregeld" },
+    { symbol: <ShieldCheck className="w-10 h-10 mx-auto text-[#00daf3]" />, label: "F-gassen Gecertificeerd" },
+    { symbol: <MapPin className="w-10 h-10 mx-auto text-[#00daf3]" />, label: "Regio Midden-Nederland" },
+    { symbol: <Star className="w-10 h-10 mx-auto text-[#00daf3]" />, label: "5.0 \u2605 Google Reviews" },
+    { symbol: <FileCheck className="w-10 h-10 mx-auto text-[#00daf3]" />, label: "Subsidie Geregeld" },
   ];
 
   return (
-    <section className="py-24 px-6 border-y border-slate-100">
+    <section className="py-24 px-6 border-y border-white/10">
       <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
         {stats.map((s) => (
           <div key={s.label}>
-            <div className="text-4xl font-black mb-2" style={{ color: config.colors.primary }}>
+            <div className="text-4xl font-black mb-2">
               {s.symbol}
             </div>
-            <p className="text-xs font-bold uppercase tracking-widest text-gray-500">
+            <p className="text-xs font-bold uppercase tracking-widest text-white/40">
               {s.label}
             </p>
           </div>
@@ -329,15 +318,15 @@ function StatsSection() {
 function DarkCTA() {
   return (
     <section className="px-6 py-32">
-      <div className="max-w-6xl mx-auto bg-[#00030a] rounded-lg p-12 md:p-24 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto bg-white/5 rounded-lg p-12 md:p-24 relative overflow-hidden">
         {/* SVG grid pattern overlay */}
         <svg
-          className="absolute inset-0 w-full h-full opacity-10 pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none"
           xmlns="http://www.w3.org/2000/svg"
         >
           <defs>
             <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" />
+              <path d="M 10 0 L 0 0 0 10" fill="none" stroke="white" strokeWidth="0.5" opacity="0.1" />
             </pattern>
           </defs>
           <rect width="100%" height="100%" fill="url(#grid)" />
@@ -355,7 +344,7 @@ function DarkCTA() {
             <a
               href="#formulier"
               onClick={() => trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "dark-cta" })}
-              className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#00030a] rounded-lg font-semibold transition-opacity hover:opacity-90"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#00daf3] text-[#00030a] rounded-lg font-semibold transition-opacity hover:opacity-90"
             >
               Neem contact op
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -363,7 +352,7 @@ function DarkCTA() {
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "dark-cta-warmtebaas")}
               onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white rounded-lg font-semibold transition-opacity hover:opacity-80"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-white/20 text-white rounded-lg font-semibold transition-opacity hover:opacity-80"
             >
               Bekijk warmtepompen
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -378,8 +367,8 @@ function DarkCTA() {
 /* ─── Page ─── */
 export default function KlimaatbaasPage() {
   return (
-    <>
-      <Navbar siteName="Klimaatbaas" primaryColor={config.colors.primary} />
+    <div className="bg-[#00030a] text-white min-h-screen">
+      <Navbar siteName="Klimaatbaas" primaryColor="#00030a" accentColor="#00daf3" isDark />
       <HeroSection />
       <DirectAnswer />
       <WieZijnWij />
@@ -388,8 +377,8 @@ export default function KlimaatbaasPage() {
       <OverOns />
       <DarkCTA />
       <USPs
-        primaryColor={config.colors.primary}
-        bgIconColor="#EBF5FB"
+        primaryColor="#00daf3"
+        bgIconColor="rgba(0,218,243,0.1)"
         items={[
           { icon: ShieldCheck, title: "Gecertificeerd", description: "F-gassen A1/A2, BRL100, Vakmanschap Warmtepompen" },
           { icon: MapPin, title: "Regionaal", description: "Korte lijnen, snel ter plaatse, we kennen de buurt" },
@@ -397,9 +386,10 @@ export default function KlimaatbaasPage() {
           { icon: Settings, title: "Onderhoud & service", description: "Servicecontracten, storingsdienst, jaarlijkse check" },
         ]}
       />
-      <WerkgebiedKaart primaryColor={config.colors.primary} siteSlug="klimaatbaas" />
+      <WerkgebiedKaart primaryColor="#00daf3" siteSlug="klimaatbaas" isDark />
       <Reviews
-        primaryColor={config.colors.primary}
+        primaryColor="#00daf3"
+        isDark
         reviews={[
           { naam: "Jan & Marieke", plaats: "Amersfoort", sterren: 5, tekst: "Warmtebaas heeft alles geregeld, van advies tot subsidie. Binnen 3 weken een werkende warmtepomp." },
           { naam: "Sophie", plaats: "Bunnik", sterren: 5, tekst: "Binnen een week geplaatst. Heerlijk koel huis, ook fijn als verwarming in het najaar." },
@@ -409,7 +399,8 @@ export default function KlimaatbaasPage() {
       <LeadForm
         site="klimaatbaas"
         title="Neem contact op"
-        primaryColor={config.colors.primary}
+        primaryColor="#00daf3"
+        isDark
         submitLabel="Verstuur bericht"
         subtext="Of bel ons direct."
         fields={[
@@ -420,7 +411,9 @@ export default function KlimaatbaasPage() {
         ]}
       />
       <Footer
-        primaryColor={config.colors.primary}
+        primaryColor="#00030a"
+        accentColor="#00daf3"
+        isDark
         links={[
           { label: "warmtebaas.com", href: utmLink("https://warmtebaas.com", "klimaatbaas", "footer-link") },
           { label: "aircobaas.com", href: utmLink("https://aircobaas.com", "klimaatbaas", "footer-link") },
@@ -428,6 +421,6 @@ export default function KlimaatbaasPage() {
         ]}
       />
       <WhatsAppButton message="Hallo, ik heb een vraag" />
-    </>
+    </div>
   );
 }

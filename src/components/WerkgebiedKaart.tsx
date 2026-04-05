@@ -37,6 +37,7 @@ interface WerkgebiedProps {
   primaryColor: string;
   compact?: boolean;
   siteSlug?: string;
+  isDark?: boolean;
 }
 
 function toSlug(plaats: string) {
@@ -50,6 +51,7 @@ export default function WerkgebiedKaart({
   primaryColor,
   compact,
   siteSlug,
+  isDark = false,
 }: WerkgebiedProps) {
   const shown = compact ? plaatsen.slice(0, 15) : plaatsen;
 
@@ -61,13 +63,13 @@ export default function WerkgebiedKaart({
   const serviceLabel = siteSlug ? serviceLabels[siteSlug] : undefined;
 
   return (
-    <section className="py-24 px-6 bg-[#f3f4f5]">
+    <section className={`py-24 px-6 ${isDark ? "" : "bg-[#f3f4f5]"}`}>
       <div className="max-w-7xl mx-auto text-center">
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Werkgebied</p>
-        <h2 className="font-heading text-4xl font-black tracking-tight mb-4">
+        <p className={`text-xs font-bold uppercase tracking-widest mb-4 ${isDark ? "text-white/40" : "text-gray-500"}`}>Werkgebied</p>
+        <h2 className={`font-heading text-4xl font-black tracking-tight mb-4 ${isDark ? "text-white" : ""}`}>
           Ons werkgebied
         </h2>
-        <p className="text-[#44474d] text-lg mb-10 max-w-2xl mx-auto">
+        <p className={`text-lg mb-10 max-w-2xl mx-auto ${isDark ? "text-white/60" : "text-[#44474d]"}`}>
           Wij werken in heel Midden-Nederland. Van Utrecht tot Amersfoort, van
           Hilversum tot Woerden en alles daartussenin.
         </p>
@@ -83,7 +85,11 @@ export default function WerkgebiedKaart({
                 key={plaats}
                 id={id}
                 href={`#${id}`}
-                className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] hover:shadow-lg transition-shadow"
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-shadow ${
+                  isDark
+                    ? "bg-white/5 border border-white/10 text-white/80 hover:bg-white/10"
+                    : "bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] hover:shadow-lg"
+                }`}
                 title={
                   serviceLabel
                     ? `${serviceLabel.charAt(0).toUpperCase() + serviceLabel.slice(1)} in ${plaats}`

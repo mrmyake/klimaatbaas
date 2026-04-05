@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="nl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/></head>
+<body>
+<!-- DESIGN PERSONALITY: Premium, architecturaal, DONKER
+  - Background: #00030a (near-black) doorlopend
+  - Accent: #00daf3 (icy cyan)
+  - Logo: KLIMAAT in #00daf3, BAAS in #fff
+  - Typography: Inter 900 voor headings, tight tracking
+  - Hero: groot wit lettertype op donkere achtergrond, asymmetrisch grid met foto rechts
+  - Bento grid: 4-col 2-row voor de vier merken, donkere kaarten met subtiele borders
+  - Stats: eerlijke stats (gecertificeerd, regio, reviews, subsidie)
+  - CTA: donker met grid-pattern overlay, witte buttons
+  - Sfeer: exclusief, high-end, als een architectenbureau
+  - GEEN lichte achtergronden, ALLES donker
+  - Decoratie: geometrische lijnen, dunne borders, grid patterns
+  - Foto's: grayscale met hover-effect
+-->
+
+<!-- Navbar: donker, vast -->
+<nav style="background: rgba(0,3,10,0.97); backdrop-filter: blur(20px); position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(255,255,255,0.05);">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between;">
+    <div style="font-weight: 900; font-size: 20px; letter-spacing: -0.02em;"><span style="color: #00daf3;">KLIMAAT</span><span style="color: #fff;">BAAS</span></div>
+    <div style="display: flex; gap: 24px; align-items: center;">
+      <a style="color: #888; font-size: 13px; text-decoration: none;">Aircobaas</a>
+      <a style="color: #888; font-size: 13px; text-decoration: none;">Warmtebaas</a>
+      <a style="color: #888; font-size: 13px; text-decoration: none;">Subsidiebaas</a>
+      <a style="color: #888; font-size: 13px; text-decoration: none;">Over Ons</a>
+      <span style="color: #fff; font-size: 13px;">+31 6 2917 3468</span>
+      <button style="background: #fff; color: #00030a; padding: 10px 24px; border-radius: 8px; font-weight: 700; font-size: 12px; border: none;">PLAN ADVIES</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero: donker, groot, architecturaal -->
+<section style="background: #00030a; min-height: 85vh; display: flex; align-items: center; padding: 80px 0; position: relative; overflow: hidden;">
+  <div style="position: absolute; top: -12%; right: -12%; width: 48%; height: 48%; border: 2px solid rgba(0,218,243,0.05); border-radius: 50%;"></div>
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; width: 100%; display: grid; grid-template-columns: 7fr 5fr; gap: 48px; align-items: center;">
+    <div>
+      <span style="color: #00daf3; font-size: 11px; font-weight: 700; letter-spacing: 0.2em; display: block; margin-bottom: 24px;">VERWARMT · KOELT · ONTZORGD</span>
+      <h1 style="color: #fff; font-size: 5rem; font-weight: 900; line-height: 0.92; letter-spacing: -0.03em; margin: 0 0 32px;">De Architect<br/>van Comfort.</h1>
+      <p style="color: #666; font-size: 18px; line-height: 1.7; max-width: 500px; margin: 0 0 40px;">Professionele klimaatbeheersing voor woningen. Wij ontwerpen systemen die niet alleen koelen of verwarmen, maar uw leefomgeving perfectioneren.</p>
+      <div style="display: flex; gap: 12px;">
+        <button style="background: #fff; color: #00030a; padding: 16px 32px; border-radius: 8px; font-weight: 900; font-size: 16px; border: none;">Plan Advies →</button>
+        <button style="background: transparent; color: #888; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; border: 1px solid #333;">Onze Projecten</button>
+      </div>
+    </div>
+    <div style="aspect-ratio: 4/5; background: linear-gradient(135deg, #111 0%, #222 100%); border-radius: 8px; position: relative;">
+      <!-- TODO: foto -->
+      <div style="position: absolute; top: -48px; right: -48px; width: 192px; height: 192px; border-top: 2px solid rgba(0,218,243,0.08); border-right: 2px solid rgba(0,218,243,0.08);"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Bento: vier merken -->
+<section style="background: #060610; padding: 96px 0;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+    <span style="color: #555; font-size: 11px; font-weight: 700; letter-spacing: 0.15em; display: block; margin-bottom: 8px;">EXPERTISE</span>
+    <h2 style="color: #fff; font-size: 36px; font-weight: 900; letter-spacing: -0.02em; margin: 0 0 48px;">Onze Domeinen</h2>
+    <div style="display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: 1fr 1fr; gap: 16px; height: 600px;">
+      <!-- Aircobaas: groot links -->
+      <div style="grid-row: span 2; background: #0d0d15; border: 1px solid #1a1a25; border-radius: 8px; padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+        <div>
+          <span style="color: #00daf3; font-size: 11px; font-weight: 700; letter-spacing: 0.15em;">KOELTECHNIEK</span>
+          <h3 style="color: #fff; font-size: 28px; font-weight: 900; margin: 12px 0;">Aircobaas</h3>
+          <p style="color: #555; font-size: 14px; line-height: 1.6;">Fluisterstille airconditioning. Koelen én verwarmen. Binnen 2 weken geplaatst.</p>
+        </div>
+        <div style="height: 200px; background: linear-gradient(135deg, #0a1520 0%, #0d1a25 100%); border-radius: 8px; margin: 16px 0;"><!-- TODO: foto airco --></div>
+        <span style="color: #00daf3; font-weight: 700; font-size: 14px;">Ontdek Aircobaas →</span>
+      </div>
+      <!-- Warmtebaas: rechts boven -->
+      <div style="grid-column: span 2; background: #E05E28; border-radius: 8px; padding: 32px; display: flex; align-items: center; justify-content: space-between;">
+        <div>
+          <h3 style="color: #fff; font-size: 24px; font-weight: 900; margin: 0 0 8px;">Warmtebaas</h3>
+          <p style="color: rgba(255,255,255,0.7); font-size: 13px;">Warmtepompen en hybride systemen. Tot €4.400 subsidie.</p>
+        </div>
+        <span style="color: #fff; font-size: 24px;">→</span>
+      </div>
+      <!-- Subsidiebaas -->
+      <div style="background: #0d0d15; border: 1px solid #1a1a25; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <span style="color: #d4af37; font-size: 24px;">€</span>
+        <div>
+          <h3 style="color: #fff; font-size: 18px; font-weight: 900;">Subsidiebaas</h3>
+          <p style="color: #555; font-size: 12px; margin-top: 4px;">Bereken uw ISDE-subsidie.</p>
+        </div>
+      </div>
+      <!-- Portfolio -->
+      <div style="background: #0d0d15; border: 1px solid #1a1a25; border-radius: 8px; padding: 32px; display: flex; flex-direction: column; justify-content: space-between;">
+        <span style="color: #888; font-size: 24px;">⬡</span>
+        <div>
+          <h3 style="color: #fff; font-size: 18px; font-weight: 900;">Portfolio</h3>
+          <p style="color: #555; font-size: 12px; margin-top: 4px;">Bekijk onze realisaties.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section style="background: #00030a; padding: 64px 0; border-top: 1px solid #111; border-bottom: 1px solid #111;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 48px;">
+    <div><p style="color: #fff; font-size: 40px; font-weight: 900; margin: 0 0 8px;">✓</p><p style="color: #555; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;">F-GASSEN GECERTIFICEERD</p></div>
+    <div><p style="color: #fff; font-size: 40px; font-weight: 900; margin: 0 0 8px;">♦</p><p style="color: #555; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;">REGIO MIDDEN-NEDERLAND</p></div>
+    <div><p style="color: #fff; font-size: 40px; font-weight: 900; margin: 0 0 8px;">5.0</p><p style="color: #555; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;">GOOGLE REVIEWS</p></div>
+    <div><p style="color: #fff; font-size: 40px; font-weight: 900; margin: 0 0 8px;">100%</p><p style="color: #555; font-size: 11px; font-weight: 700; letter-spacing: 0.1em;">SUBSIDIE GEREGELD</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="background: #00030a; padding: 96px 0;">
+  <div style="max-width: 1280px; margin: 0 auto; padding: 0 32px;">
+    <div style="background: #0d0d15; border: 1px solid #1a1a25; border-radius: 12px; padding: 80px; text-align: center; position: relative; overflow: hidden;">
+      <h2 style="color: #fff; font-size: 48px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05; margin: 0 0 24px;">Klaar voor de volgende<br/>stap in comfort?</h2>
+      <p style="color: #555; font-size: 18px; margin: 0 0 40px;">Ontvang een vrijblijvend adviesgesprek op locatie.</p>
+      <div style="display: flex; gap: 12px; justify-content: center;">
+        <button style="background: #fff; color: #00030a; padding: 16px 32px; border-radius: 8px; font-weight: 900; font-size: 16px; border: none;">Plan Uw Advies</button>
+        <button style="background: transparent; color: #888; padding: 16px 32px; border-radius: 8px; font-weight: 700; font-size: 16px; border: 1px solid #333;">Bel: +31 6 2917 3468</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer style="background: #00030a; padding: 48px 32px; border-top: 1px solid #111; text-align: center;">
+  <span style="font-weight: 900; font-size: 18px;"><span style="color: #00daf3;">KLIMAAT</span><span style="color: #fff;">BAAS</span></span>
+  <p style="color: #333; font-size: 12px; margin-top: 12px;">© 2026 Klimaatbaas B.V.</p>
+</footer>
+</body></html>

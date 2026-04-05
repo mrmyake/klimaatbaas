@@ -9,7 +9,6 @@ import LeadForm from "@/components/LeadForm";
 import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
-import { sites } from "@/lib/sites";
 import { utmLink } from "@/lib/utm";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -25,7 +24,6 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-const config = sites.warmtebaas;
 
 const faqItems = [
   {
@@ -81,8 +79,8 @@ const stappenItems = [
 function SectionLabel({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex items-center gap-3 mb-6">
-      <span className="inline-block h-[2px] w-8 bg-[#C0392B]" />
-      <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#C0392B]">
+      <span className="inline-block h-[2px] w-8 bg-[#E05E28]" />
+      <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#E05E28]">
         {children}
       </span>
     </div>
@@ -101,12 +99,12 @@ function UrgentieBanner() {
 /* ---------- Hero ---------- */
 function HeroSection() {
   return (
-    <section className="min-h-[700px] flex items-center py-20 px-6 bg-white">
+    <section className="min-h-[700px] flex items-center py-20 px-6 bg-[#FFF8F4]">
       <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-12 gap-12 items-center">
         {/* Left column */}
         <div className="lg:col-span-7">
           <SectionLabel>Warmtepomp specialist</SectionLabel>
-          <h1 className="text-5xl md:text-6xl font-black tracking-tighter leading-[0.95] text-[#00030a] mb-6">
+          <h1 className="text-5xl md:text-6xl font-black tracking-tight leading-[0.95] text-[#00030a] mb-6">
             Bespaar tot €4.400 subsidie op uw warmtepomp
           </h1>
           <p className="text-lg text-[#44474d] leading-relaxed mb-10 max-w-xl">
@@ -121,7 +119,7 @@ function HeroSection() {
                   .getElementById("formulier")
                   ?.scrollIntoView({ behavior: "smooth" });
               }}
-              className="inline-flex items-center gap-2 bg-[#C0392B] hover:bg-[#96281B] text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
+              className="inline-flex items-center gap-2 bg-[#E05E28] hover:bg-[#c04e1f] text-white font-bold px-8 py-4 rounded-lg text-lg transition-colors"
             >
               Gratis woningcheck aanvragen
               <ArrowRight className="w-5 h-5" />
@@ -133,7 +131,7 @@ function HeroSection() {
                 "hero-secondary"
               )}
               onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="inline-flex items-center gap-2 border-2 border-[#C0392B] text-[#C0392B] hover:bg-red-50 font-bold px-8 py-4 rounded-lg text-lg transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-[#E05E28] text-[#E05E28] hover:bg-orange-50 font-bold px-8 py-4 rounded-lg text-lg transition-colors"
             >
               Bereken uw subsidie
             </a>
@@ -142,13 +140,13 @@ function HeroSection() {
 
         {/* Right column - placeholder */}
         <div className="lg:col-span-5 relative">
-          <div className="aspect-square bg-gradient-to-br from-red-100 to-red-300 rounded-lg shadow-[0_0_40px_0_rgba(192,57,43,0.15)]">
+          <div className="aspect-square bg-gradient-to-br from-orange-100 to-orange-300 rounded-lg shadow-[0_0_40px_0_rgba(224,94,40,0.15)]">
             {/* TODO: foto */}
           </div>
           {/* Decorative circles */}
-          <div className="absolute -top-8 -right-8 w-32 h-32 border-2 border-[#C0392B]/20 rounded-full" />
-          <div className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-[#C0392B]/20 rounded-full" />
-          <div className="absolute top-1/2 -right-12 w-16 h-16 border-2 border-[#C0392B]/20 rounded-full" />
+          <div className="absolute -top-8 -right-8 w-32 h-32 border-2 border-[#E05E28]/20 rounded-full" />
+          <div className="absolute -bottom-6 -left-6 w-24 h-24 border-2 border-[#E05E28]/20 rounded-full" />
+          <div className="absolute top-1/2 -right-12 w-16 h-16 border-2 border-[#E05E28]/20 rounded-full" />
         </div>
       </div>
     </section>
@@ -158,7 +156,7 @@ function HeroSection() {
 /* ---------- Direct Answer ---------- */
 function DirectAnswer() {
   return (
-    <section className="py-16 px-6 bg-[#f3f4f5]">
+    <section className="py-16 px-6 bg-[#FFF8F4]">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-6">
           Warmtepomp laten plaatsen: wat u moet weten
@@ -181,8 +179,7 @@ function DirectAnswer() {
                 "direct-answer"
               )}
               onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="underline font-semibold"
-              style={{ color: config.colors.primary }}
+              className="underline font-semibold text-[#E05E28]"
             >
               Bereken uw exacte subsidie op subsidiebaas.com
             </a>
@@ -202,7 +199,7 @@ function DirectAnswer() {
 /* ---------- Expertise Bento Grid ---------- */
 function ExpertiseBento() {
   return (
-    <section className="py-24 px-6 bg-[#f3f4f5]">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionLabel>Onze expertise</SectionLabel>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-12">
@@ -211,8 +208,8 @@ function ExpertiseBento() {
 
         <div className="grid md:grid-cols-6 gap-6">
           {/* Hybride Warmtepompen - col-span-3 */}
-          <div className="md:col-span-3 bg-[#e1e3e4] rounded-lg p-8">
-            <Flame className="w-8 h-8 text-[#C0392B] mb-4" />
+          <div className="md:col-span-3 bg-[#FFF8F4] border-l-4 border-[#E05E28] rounded-lg p-8">
+            <Flame className="w-8 h-8 text-[#E05E28] mb-4" />
             <h3 className="text-xl font-bold text-[#00030a] mb-2">
               Hybride Warmtepompen
             </h3>
@@ -223,7 +220,7 @@ function ExpertiseBento() {
             </p>
             <div className="w-full bg-white/60 rounded-full h-1.5">
               <div
-                className="bg-[#C0392B] h-1.5 rounded-full"
+                className="bg-[#E05E28] h-1.5 rounded-full"
                 style={{ width: "85%" }}
               />
             </div>
@@ -233,8 +230,8 @@ function ExpertiseBento() {
           </div>
 
           {/* All-Electric - col-span-3 */}
-          <div className="md:col-span-3 bg-[#e1e3e4] rounded-lg p-8">
-            <Zap className="w-8 h-8 text-[#C0392B] mb-4" />
+          <div className="md:col-span-3 bg-[#FFF8F4] border-l-4 border-[#E05E28] rounded-lg p-8">
+            <Zap className="w-8 h-8 text-[#E05E28] mb-4" />
             <h3 className="text-xl font-bold text-[#00030a] mb-2">
               All-Electric
             </h3>
@@ -245,8 +242,8 @@ function ExpertiseBento() {
           </div>
 
           {/* Subsidie Geregeld - col-span-2 */}
-          <div className="md:col-span-2 bg-[#e1e3e4] rounded-lg p-8">
-            <FileText className="w-8 h-8 text-[#C0392B] mb-4" />
+          <div className="md:col-span-2 bg-[#FFF8F4] rounded-lg p-8">
+            <FileText className="w-8 h-8 text-[#E05E28] mb-4" />
             <h3 className="text-xl font-bold text-[#00030a] mb-2">
               Subsidie Geregeld
             </h3>
@@ -257,7 +254,7 @@ function ExpertiseBento() {
           </div>
 
           {/* Binnen 4 Weken - col-span-2, primary bg */}
-          <div className="md:col-span-2 bg-[#C0392B] text-white rounded-lg p-8">
+          <div className="md:col-span-2 bg-[#E05E28] text-white rounded-lg p-8">
             <Clock className="w-8 h-8 text-white mb-4" />
             <h3 className="text-xl font-bold mb-2">Binnen 4 Weken</h3>
             <p className="text-white/80 leading-relaxed text-sm">
@@ -267,8 +264,8 @@ function ExpertiseBento() {
           </div>
 
           {/* Onderhoud & Service - col-span-2 */}
-          <div className="md:col-span-2 bg-[#e1e3e4] rounded-lg p-8">
-            <Settings className="w-8 h-8 text-[#C0392B] mb-4" />
+          <div className="md:col-span-2 bg-[#FFF8F4] rounded-lg p-8">
+            <Settings className="w-8 h-8 text-[#E05E28] mb-4" />
             <h3 className="text-xl font-bold text-[#00030a] mb-2">
               Onderhoud & Service
             </h3>
@@ -286,7 +283,7 @@ function ExpertiseBento() {
 /* ---------- Stappen ---------- */
 function StappenSection() {
   return (
-    <section className="py-24 px-6 bg-white">
+    <section className="py-24 px-6 bg-[#FFF8F4]">
       <div className="max-w-7xl mx-auto">
         <SectionLabel>Hoe werkt het?</SectionLabel>
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-12">
@@ -297,10 +294,10 @@ function StappenSection() {
             const Icon = stap.icon;
             return (
               <div key={stap.title} className="relative">
-                <div className="text-6xl font-black text-[#C0392B]/10 mb-2">
+                <div className="text-6xl font-black text-[#E05E28]/10 mb-2">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <Icon className="w-7 h-7 text-[#C0392B] mb-3" />
+                <Icon className="w-7 h-7 text-[#E05E28] mb-3" />
                 <h3 className="text-lg font-bold text-[#00030a] mb-2">
                   {stap.title}
                 </h3>
@@ -361,7 +358,7 @@ function PrijsTabel() {
   }));
 
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 bg-[#FFF8F4]">
       <div className="max-w-5xl mx-auto">
         <script
           type="application/ld+json"
@@ -375,7 +372,7 @@ function PrijsTabel() {
           Inclusief installatie, materiaal en subsidieaanvraag. Prijzen zijn
           indicatief.
         </p>
-        <div className="bg-white rounded-lg p-8 md:p-12 shadow-[0_0_40px_0_rgba(192,57,43,0.15)]">
+        <div className="bg-white rounded-lg p-8 md:p-12 border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)]">
           <div className="overflow-x-auto">
             <table className="w-full text-left">
               <thead>
@@ -401,10 +398,7 @@ function PrijsTabel() {
                       {p.type}
                     </td>
                     <td className="py-4 pr-4 text-[#44474d]">{p.prijs}</td>
-                    <td
-                      className="py-4 pr-4 font-semibold"
-                      style={{ color: config.colors.primary }}
-                    >
+                    <td className="py-4 pr-4 font-semibold text-[#E05E28]">
                       {p.subsidie}
                     </td>
                     <td className="py-4 font-semibold text-[#00030a]">
@@ -426,8 +420,7 @@ function PrijsTabel() {
               "prijstabel-link"
             )}
             onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="underline font-semibold"
-            style={{ color: config.colors.primary }}
+            className="underline font-semibold text-[#E05E28]"
           >
             Bereken uw subsidie op subsidiebaas.com
           </a>
@@ -440,25 +433,27 @@ function PrijsTabel() {
 /* ---------- Prijs CTA ---------- */
 function PrijsCTA() {
   return (
-    <section className="py-16 px-6 bg-[#f3f4f5]">
-      <div className="max-w-3xl mx-auto text-center">
-        <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-4">
-          Benieuwd wat een warmtepomp voor uw woning kost?
-        </h2>
-        <p className="text-lg text-[#44474d] leading-relaxed mb-8">
-          Wij maken een berekening op maat, inclusief subsidie-indicatie. Gratis
-          en vrijblijvend.
-        </p>
-        <button
-          onClick={() =>
-            document
-              .getElementById("formulier")
-              ?.scrollIntoView({ behavior: "smooth" })
-          }
-          className="inline-flex items-center gap-2 bg-[#C0392B] hover:bg-[#96281B] text-white font-bold px-8 py-4 rounded-lg text-lg shadow-[0_0_40px_0_rgba(192,57,43,0.15)] hover:shadow-xl transition-all hover:-translate-y-0.5"
-        >
-          Gratis woningcheck aanvragen
-        </button>
+    <section className="py-16 px-6 bg-[#FFF8F4]">
+      <div className="max-w-3xl mx-auto">
+        <div className="bg-[#FFF0E8] rounded-lg p-12 text-center">
+          <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-4">
+            Benieuwd wat een warmtepomp voor uw woning kost?
+          </h2>
+          <p className="text-lg text-[#44474d] leading-relaxed mb-8">
+            Wij maken een berekening op maat, inclusief subsidie-indicatie. Gratis
+            en vrijblijvend.
+          </p>
+          <button
+            onClick={() =>
+              document
+                .getElementById("formulier")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
+            className="inline-flex items-center gap-2 bg-[#E05E28] hover:bg-[#c04e1f] text-white font-bold px-8 py-4 rounded-lg text-lg shadow-[0_8px_24px_rgba(224,94,40,0.15)] hover:shadow-xl transition-all hover:-translate-y-0.5"
+          >
+            Gratis woningcheck aanvragen
+          </button>
+        </div>
       </div>
     </section>
   );
@@ -483,7 +478,7 @@ function DarkCTA() {
               .getElementById("formulier")
               ?.scrollIntoView({ behavior: "smooth" });
           }}
-          className="bg-[#C0392B] hover:bg-[#96281B] text-white px-12 py-5 rounded-lg font-bold text-xl transition-colors"
+          className="bg-[#E05E28] hover:bg-[#c04e1f] text-white px-12 py-5 rounded-lg font-bold text-xl transition-colors"
         >
           Gratis woningcheck aanvragen
         </button>
@@ -518,7 +513,7 @@ function HowToSchema() {
 /* ---------- Internal Links ---------- */
 function InternalLinks() {
   return (
-    <section className="py-12 px-6 bg-white">
+    <section className="py-12 px-6 bg-[#FFF8F4]">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-4xl md:text-5xl font-black tracking-tight text-[#00030a] mb-6">
           Meer van Klimaatbaas
@@ -565,9 +560,9 @@ function InternalLinks() {
 /* ---------- Main Page ---------- */
 export default function WarmtebaasPage() {
   return (
-    <>
+    <div className="bg-[#FFF8F4]">
       <HowToSchema />
-      <Navbar siteName="Warmtebaas" primaryColor={config.colors.primary} />
+      <Navbar siteName="Warmtebaas" primaryColor="#E05E28" accentColor="#E05E28" borderColor="#E05E28" />
       <HeroSection />
       <UrgentieBanner />
       <DirectAnswer />
@@ -576,12 +571,13 @@ export default function WarmtebaasPage() {
       <PrijsTabel />
       <PrijsCTA />
       <SubsidieCalculator
-        primaryColor={config.colors.primary}
+        primaryColor="#E05E28"
         variant="compact"
       />
       <DarkCTA />
       <Reviews
-        primaryColor={config.colors.primary}
+        isDark={false}
+        primaryColor="#E05E28"
         reviews={[
           {
             naam: "Jan & Marieke",
@@ -606,9 +602,10 @@ export default function WarmtebaasPage() {
           },
         ]}
       />
-      <FAQ primaryColor={config.colors.primary} items={faqItems} />
+      <FAQ isDark={false} primaryColor="#E05E28" items={faqItems} />
       <WerkgebiedKaart
-        primaryColor={config.colors.primary}
+        isDark={false}
+        primaryColor="#E05E28"
         compact
         siteSlug="warmtebaas"
       />
@@ -616,7 +613,7 @@ export default function WarmtebaasPage() {
       <LeadForm
         site="warmtebaas"
         title="Gratis woningcheck aanvragen"
-        primaryColor={config.colors.primary}
+        primaryColor="#E05E28"
         submitLabel="Woningcheck aanvragen"
         subtext="Binnen 48 uur nemen wij contact met u op voor een gratis adviesgesprek."
         fields={[
@@ -694,7 +691,8 @@ export default function WarmtebaasPage() {
         ]}
       />
       <Footer
-        primaryColor={config.colors.primary}
+        accentColor="#E05E28"
+        primaryColor="#E05E28"
         links={[
           {
             label: "Ook airconditioning nodig? → aircobaas.com",
@@ -716,9 +714,9 @@ export default function WarmtebaasPage() {
       />
       <StickyCTA
         label="Gratis woningcheck aanvragen"
-        primaryColor={config.colors.primary}
+        primaryColor="#E05E28"
       />
       <WhatsAppButton message="Hallo, ik heb een vraag over warmtepompen" />
-    </>
+    </div>
   );
 }

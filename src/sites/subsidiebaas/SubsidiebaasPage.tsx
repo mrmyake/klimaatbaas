@@ -8,7 +8,6 @@ import Footer from "@/components/Footer";
 import StickyCTA from "@/components/StickyCTA";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import VerifiedBy from "@/components/VerifiedBy";
-import { sites } from "@/lib/sites";
 import { utmLink } from "@/lib/utm";
 import { trackEvent } from "@/lib/analytics";
 import {
@@ -17,10 +16,10 @@ import {
   UserCheck,
   Clock,
   CheckSquare,
+  CheckCircle,
   ArrowRight,
 } from "lucide-react";
 
-const config = sites.subsidiebaas;
 
 const stappenItems = [
   "Check de meldcodelijst op RVO.nl — alleen warmtepompen met een geldige meldcode komen in aanmerking.",
@@ -34,10 +33,10 @@ const stappenItems = [
 /* ─── Hero ─────────────────────────────────────────────────────────── */
 function HeroSection() {
   return (
-    <section className="relative min-h-[700px] flex items-center overflow-hidden px-6 py-32">
+    <section className="relative min-h-[700px] flex items-center bg-[#F4F9F6] overflow-hidden px-6 py-32">
       {/* decorative background */}
       <div className="absolute inset-0 z-0 pointer-events-none" aria-hidden="true">
-        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#27AE60]/5 to-transparent" />
+        <div className="absolute top-0 right-0 w-2/3 h-full bg-gradient-to-l from-[#065f46]/5 to-transparent" />
         <svg
           className="absolute bottom-0 right-0 opacity-20"
           width="480"
@@ -47,7 +46,7 @@ function HeroSection() {
         >
           <path
             d="M0 280 Q120 200 240 180 T480 60"
-            stroke="#27AE60"
+            stroke="#065f46"
             strokeWidth="3"
             fill="none"
           />
@@ -62,7 +61,7 @@ function HeroSection() {
 
       {/* content */}
       <div className="max-w-4xl mx-auto relative z-10">
-        <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-6 block">
+        <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-6 block">
           ISDE Subsidie 2026
         </span>
         <h1 className="text-5xl md:text-7xl font-black leading-[0.9] tracking-tighter mb-8">
@@ -78,14 +77,14 @@ function HeroSection() {
                 .getElementById("calculator")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="bg-[#00030a] text-white px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-2 hover:opacity-90 transition-opacity"
+            className="bg-[#065f46] text-white px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-2 hover:opacity-90 transition-opacity"
           >
             Start subsidiecheck <ArrowRight className="w-5 h-5" />
           </button>
           <a
             href={utmLink("https://warmtebaas.com", "subsidiebaas", "hero")}
             onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="border border-slate-200 px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-2 hover:bg-slate-50 transition-colors"
+            className="border border-[#065f46] text-[#065f46] px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-2 hover:bg-[#065f46]/5 transition-colors"
           >
             Direct installatie aanvragen
           </a>
@@ -98,14 +97,14 @@ function HeroSection() {
 /* ─── Stats Bento ──────────────────────────────────────────────────── */
 function StatsBento() {
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-[#F4F9F6]">
       <div className="max-w-6xl mx-auto grid md:grid-cols-4 gap-6">
         {/* big card */}
-        <div className="col-span-2 bg-[#f3f4f5] p-10 rounded-lg h-[280px] flex flex-col justify-between">
+        <div className="col-span-2 bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] p-10 rounded-lg h-[280px] flex flex-col justify-between">
           <span className="text-5xl">📈</span>
           <div>
             <h3 className="text-3xl font-black tracking-tighter mb-2">
-              Gemiddeld €2.500 terug
+              Gemiddeld <span className="text-[#d4af37]">€2.500</span> terug
             </h3>
             <p className="text-[#44474d]">
               Bij een hybride of all-electric warmtepomp in bestaande bouw.
@@ -113,14 +112,14 @@ function StatsBento() {
           </div>
         </div>
 
-        {/* dark card */}
-        <div className="col-span-1 bg-[#00030a] text-white p-10 rounded-lg h-[280px] flex flex-col justify-between">
+        {/* green card */}
+        <div className="col-span-1 bg-[#065f46] text-white p-10 rounded-lg h-[280px] flex flex-col justify-between">
           <span className="text-4xl">✓</span>
           <div>
             <h3 className="text-xl font-black tracking-tighter mb-2">
               RVO Gecertificeerd
             </h3>
-            <p className="text-slate-400">
+            <p className="text-white/70">
               Erkende installateurs en meldcodes voor een vlotte aanvraag.
             </p>
           </div>
@@ -146,19 +145,18 @@ function StatsBento() {
 /* ─── Features ─────────────────────────────────────────────────────── */
 function FeaturesSection() {
   const features = [
-    { emoji: "📊", title: "Exacte Berekening", text: "Wij berekenen uw subsidie op basis van het type warmtepomp, vermogen en woonsituatie." },
-    { emoji: "📋", title: "Foutloze Aanvraag", text: "Geen afwijzing door onvolledige of foutieve documenten." },
-    { emoji: "💰", title: "Maximaal Resultaat", text: "Wij zorgen dat u het maximale subsidiebedrag ontvangt." },
+    { title: "Exacte Berekening", text: "Wij berekenen uw subsidie op basis van het type warmtepomp, vermogen en woonsituatie." },
+    { title: "Foutloze Aanvraag", text: "Geen afwijzing door onvolledige of foutieve documenten." },
+    { title: "Maximaal Resultaat", text: "Wij zorgen dat u het maximale subsidiebedrag ontvangt." },
   ];
 
   return (
-    <section className="bg-[#f3f4f5] py-32 px-6">
+    <section className="bg-white py-32 px-6">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center">
         {/* left: image placeholder */}
         <div className="relative aspect-square rounded-lg overflow-hidden">
-          {/* TODO: foto */}
-          <div className="absolute inset-0 bg-gradient-to-br from-[#27AE60]/40 to-[#1E8449]/60 rounded-lg" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#1E8449]/80 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-br from-[#065f46]/40 to-[#065f46]/60 rounded-lg" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#065f46]/80 to-transparent" />
           {/* floating glass card */}
           <div className="absolute bottom-6 left-6 right-6 bg-white/70 backdrop-blur-xl rounded-lg p-6">
             <p className="font-black text-lg">Tot €5.000+ subsidie</p>
@@ -170,7 +168,7 @@ function FeaturesSection() {
 
         {/* right: text + features */}
         <div>
-          <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-4 block">
+          <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-4 block">
             Waarom Subsidiebaas
           </span>
           <h2 className="text-5xl font-black tracking-tighter leading-[0.95] mb-10">
@@ -179,7 +177,7 @@ function FeaturesSection() {
           <div className="space-y-8">
             {features.map((f) => (
               <div key={f.title} className="flex gap-5">
-                <span className="text-3xl shrink-0">{f.emoji}</span>
+                <CheckCircle className="w-7 h-7 text-[#065f46] shrink-0 mt-0.5" aria-hidden="true" />
                 <div>
                   <h3 className="font-bold text-lg mb-1">{f.title}</h3>
                   <p className="text-[#44474d] leading-relaxed">{f.text}</p>
@@ -196,9 +194,9 @@ function FeaturesSection() {
 /* ─── Direct Answer ────────────────────────────────────────────────── */
 function DirectAnswer() {
   return (
-    <section className="py-20 px-6">
+    <section className="py-20 px-6 bg-[#F4F9F6]">
       <div className="max-w-3xl mx-auto">
-        <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-4 block">
+        <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-4 block">
           Snel antwoord
         </span>
         <h2 className="text-3xl md:text-4xl font-black tracking-tighter mb-8">
@@ -228,7 +226,7 @@ function DirectAnswer() {
                 "direct-answer"
               )}
               onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-              className="underline font-semibold text-[#27AE60] hover:text-[#1E8449] transition-colors"
+              className="underline font-semibold text-[#065f46] hover:text-[#065f46]/80 transition-colors"
             >
               Warmtebaas regelt de volledige aanvraag voor u →
             </a>
@@ -265,9 +263,9 @@ function ISDeUitleg() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-[#F4F9F6]">
       <div className="max-w-5xl mx-auto">
-        <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
+        <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
           Achtergrond
         </span>
         <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-center mb-14">
@@ -277,10 +275,10 @@ function ISDeUitleg() {
           {items.map((item) => (
             <div
               key={item.title}
-              className="bg-[#f3f4f5] rounded-lg p-8 hover:shadow-md transition-shadow"
+              className="bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] rounded-lg p-8 hover:shadow-md transition-shadow"
             >
               <item.icon
-                className="w-8 h-8 text-[#27AE60] mb-4"
+                className="w-8 h-8 text-[#065f46] mb-4"
                 aria-hidden="true"
               />
               <h3 className="font-bold text-lg mb-2">{item.title}</h3>
@@ -319,9 +317,9 @@ function HowToSchema() {
 /* ─── Stappenplan ──────────────────────────────────────────────────── */
 function Stappenplan() {
   return (
-    <section className="py-24 px-6 bg-[#f3f4f5]">
+    <section className="py-24 px-6 bg-white">
       <div className="max-w-3xl mx-auto">
-        <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
+        <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
           Stappenplan
         </span>
         <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-center mb-14">
@@ -330,7 +328,7 @@ function Stappenplan() {
         <div className="space-y-5">
           {stappenItems.map((stap, i) => (
             <div key={i} className="flex gap-5 items-start">
-              <div className="w-10 h-10 rounded-full bg-[#27AE60] text-white flex items-center justify-center text-sm font-bold shrink-0">
+              <div className="w-10 h-10 rounded-full bg-[#065f46] text-white flex items-center justify-center text-sm font-bold shrink-0">
                 {i + 1}
               </div>
               <p className="text-[#44474d] leading-relaxed pt-2 text-lg">
@@ -361,9 +359,9 @@ function Checklist() {
   ];
 
   return (
-    <section className="py-24 px-6">
+    <section className="py-24 px-6 bg-[#F4F9F6]">
       <div className="max-w-2xl mx-auto">
-        <span className="text-[#27AE60] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
+        <span className="text-[#065f46] font-bold uppercase tracking-widest text-sm mb-4 block text-center">
           Voorbereiding
         </span>
         <h2 className="text-3xl md:text-4xl font-black tracking-tighter text-center mb-4">
@@ -372,11 +370,11 @@ function Checklist() {
         <p className="text-[#44474d] text-center mb-10 text-lg">
           Zorg dat u alles op orde heeft voor uw aanvraag.
         </p>
-        <div className="bg-[#f3f4f5] rounded-lg p-8 space-y-3">
+        <div className="bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] rounded-lg p-8 space-y-3">
           {items.map((item) => (
             <div key={item} className="flex items-start gap-3">
               <CheckSquare
-                className="w-5 h-5 text-[#27AE60] shrink-0 mt-0.5"
+                className="w-5 h-5 text-[#065f46] shrink-0 mt-0.5"
                 aria-hidden="true"
               />
               <span className="text-[#44474d]">{item}</span>
@@ -394,7 +392,7 @@ function Checklist() {
 /* ─── Dark CTA ─────────────────────────────────────────────────────── */
 function DarkCTA() {
   return (
-    <section className="py-32 px-6">
+    <section className="py-32 px-6 bg-[#F4F9F6]">
       <div className="max-w-6xl mx-auto bg-[#00030a] p-12 md:p-20 rounded-lg relative overflow-hidden">
         {/* decorative euro sign */}
         <span
@@ -431,7 +429,7 @@ function DarkCTA() {
 /* ─── Internal Links ───────────────────────────────────────────────── */
 function InternalLinks() {
   return (
-    <section className="py-16 px-6">
+    <section className="py-16 px-6 bg-[#F4F9F6]">
       <div className="max-w-3xl mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-black tracking-tighter mb-4">
           Klaar om te installeren?
@@ -448,7 +446,7 @@ function InternalLinks() {
               "meer-van-klimaatbaas"
             )}
             onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-slate-50 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-white/60 transition-colors"
           >
             Warmtepomp installatie → Warmtebaas
           </a>
@@ -459,7 +457,7 @@ function InternalLinks() {
               "meer-van-klimaatbaas"
             )}
             onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-slate-50 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-white/60 transition-colors"
           >
             Airco installatie → Aircobaas
           </a>
@@ -469,7 +467,7 @@ function InternalLinks() {
               "subsidiebaas",
               "meer-van-klimaatbaas"
             )}
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-slate-50 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-white/60 transition-colors"
           >
             Over ons → Klimaatbaas
           </a>
@@ -482,11 +480,13 @@ function InternalLinks() {
 /* ─── Main Page ────────────────────────────────────────────────────── */
 export default function SubsidiebaasPage() {
   return (
-    <>
+    <div className="bg-[#F4F9F6]">
       <HowToSchema />
       <Navbar
         siteName="Subsidiebaas"
-        primaryColor={config.colors.primary}
+        primaryColor="#065f46"
+        accentColor="#065f46"
+        borderColor="#065f46"
         links={[
           { label: "Subsidie Berekenen", href: "#calculator" },
           { label: "Veelgemaakte Fouten", href: "/subsidie-aanvraag-fouten" },
@@ -499,7 +499,7 @@ export default function SubsidiebaasPage() {
       <FeaturesSection />
       <DirectAnswer />
       <SubsidieCalculator
-        primaryColor={config.colors.primary}
+        primaryColor="#065f46"
         variant="full"
       />
       <ISDeUitleg />
@@ -507,7 +507,7 @@ export default function SubsidiebaasPage() {
       <Checklist />
       <DarkCTA />
       <FAQ
-        primaryColor={config.colors.primary}
+        primaryColor="#065f46"
         items={[
           {
             vraag: "Moet ik de ISDE-subsidie zelf aanvragen?",
@@ -540,7 +540,7 @@ export default function SubsidiebaasPage() {
       <LeadForm
         site="subsidiebaas"
         title="Vrijblijvend adviesgesprek aanvragen"
-        primaryColor={config.colors.primary}
+        primaryColor="#065f46"
         submitLabel="Gratis advies aanvragen"
         subtext="Subsidiebaas is een initiatief van Klimaatbaas B.V. — uw installatiepartner in Midden-Nederland."
         fields={[
@@ -573,7 +573,8 @@ export default function SubsidiebaasPage() {
       />
       <VerifiedBy />
       <Footer
-        primaryColor={config.colors.primary}
+        accentColor="#065f46"
+        primaryColor="#065f46"
         links={[
           {
             label: "Klaar voor installatie? → warmtebaas.com",
@@ -595,9 +596,9 @@ export default function SubsidiebaasPage() {
       />
       <StickyCTA
         label="Start subsidiecheck"
-        primaryColor={config.colors.primary}
+        primaryColor="#065f46"
       />
       <WhatsAppButton message="Hallo, ik heb een vraag over subsidie" />
-    </>
+    </div>
   );
 }

@@ -24,6 +24,7 @@ interface LeadFormProps {
   submitLabel: string;
   subtext: string;
   primaryColor: string;
+  isDark?: boolean;
 }
 
 export default function LeadForm({
@@ -33,6 +34,7 @@ export default function LeadForm({
   submitLabel,
   subtext,
   primaryColor,
+  isDark = false,
 }: LeadFormProps) {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
@@ -107,8 +109,8 @@ export default function LeadForm({
   return (
     <section id="formulier" className="py-24 px-6">
       <div className="max-w-xl mx-auto">
-        <p className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4 text-center">Contact</p>
-        <h2 className="font-heading text-4xl font-black tracking-tight text-center mb-4">
+        <p className={`text-xs font-bold uppercase tracking-widest mb-4 text-center ${isDark ? "text-white/40" : "text-gray-500"}`}>Contact</p>
+        <h2 className={`font-heading text-4xl font-black tracking-tight text-center mb-4 ${isDark ? "text-white" : ""}`}>
           {title}
         </h2>
         <p className="text-center text-gray-500 mb-8 flex items-center justify-center gap-2">
@@ -125,7 +127,7 @@ export default function LeadForm({
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="bg-white rounded-lg border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)] p-8 space-y-5"
+          className={`rounded-lg p-8 space-y-5 ${isDark ? "bg-white/5 border border-white/10" : "bg-white border border-slate-200 shadow-[0_8px_24px_rgba(0,3,10,0.06)]"}`}
         >
           {fields.map((field) => (
             <div key={field.name}>
