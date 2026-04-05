@@ -40,7 +40,7 @@ export default function Navbar({ siteName, primaryColor, links }: NavbarProps) {
           href="tel:+31629173468"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg text-sm font-bold text-white transition-all hover:scale-95"
           style={{ backgroundColor: primaryColor }}
-          onClick={() => trackEvent("phone_click", { location: "navbar" })}
+          onClick={() => trackEvent("phone_click", { source_page: window.location.pathname })}
         >
           <Phone className="w-4 h-4" aria-hidden="true" />
           <span className="hidden sm:inline">+31 6 2917 3468</span>

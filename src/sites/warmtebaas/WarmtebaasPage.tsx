@@ -116,7 +116,7 @@ function HeroSection() {
           <div className="flex flex-wrap gap-4">
             <button
               onClick={() => {
-                trackEvent("cta_click_hero_primary");
+                trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "hero" });
                 document
                   .getElementById("formulier")
                   ?.scrollIntoView({ behavior: "smooth" });
@@ -132,7 +132,7 @@ function HeroSection() {
                 "warmtebaas",
                 "hero-secondary"
               )}
-              onClick={() => trackEvent("cta_click_subsidiebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 border-2 border-[#C0392B] text-[#C0392B] hover:bg-red-50 font-bold px-8 py-4 rounded-lg text-lg transition-colors"
             >
               Bereken uw subsidie
@@ -180,7 +180,7 @@ function DirectAnswer() {
                 "warmtebaas",
                 "direct-answer"
               )}
-              onClick={() => trackEvent("cta_click_subsidiebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="underline font-semibold"
               style={{ color: config.colors.primary }}
             >
@@ -425,7 +425,7 @@ function PrijsTabel() {
               "warmtebaas",
               "prijstabel-link"
             )}
-            onClick={() => trackEvent("cta_click_subsidiebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="underline font-semibold"
             style={{ color: config.colors.primary }}
           >
@@ -478,7 +478,7 @@ function DarkCTA() {
         </p>
         <button
           onClick={() => {
-            trackEvent("cta_click_dark_section");
+            trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "dark-cta" });
             document
               .getElementById("formulier")
               ?.scrollIntoView({ behavior: "smooth" });
@@ -530,7 +530,7 @@ function InternalLinks() {
               "warmtebaas",
               "meer-van-klimaatbaas"
             )}
-            onClick={() => trackEvent("cta_click_aircobaas")}
+            onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-blue-200 text-blue-700 font-semibold hover:bg-blue-50 transition-colors"
           >
             Airco nodig? → Aircobaas
@@ -541,7 +541,7 @@ function InternalLinks() {
               "warmtebaas",
               "meer-van-klimaatbaas"
             )}
-            onClick={() => trackEvent("cta_click_subsidiebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-green-200 text-green-700 font-semibold hover:bg-green-50 transition-colors"
           >
             Subsidie berekenen → Subsidiebaas

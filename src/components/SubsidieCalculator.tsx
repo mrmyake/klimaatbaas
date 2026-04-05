@@ -91,12 +91,20 @@ export default function SubsidieCalculator({
   const trackTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   // Debounced GA4 tracking
-  const trackCalculation = useCallback((wpType: string, bedrag: number) => {
-    if (trackTimerRef.current) clearTimeout(trackTimerRef.current);
-    trackTimerRef.current = setTimeout(() => {
-      trackEvent("calculator_used", { type: wpType, bedrag });
-    }, 1000);
-  }, []);
+  const trackCalculation = useCallback(
+    (wpType: string, bedrag: number, kw: number, lbl: string) => {
+      if (trackTimerRef.current) clearTimeout(trackTimerRef.current);
+      trackTimerRef.current = setTimeout(() => {
+        trackEvent("calculator_used", {
+          warmtepomp_type: wpType,
+          vermogen_kw: kw,
+          energielabel: lbl,
+          berekend_bedrag: bedrag,
+        });
+      }, 1000);
+    },
+    []
+  );
 
   // Live-update: recalculate whenever any input changes
   useEffect(() => {
@@ -109,7 +117,7 @@ export default function SubsidieCalculator({
       combineertMetIsolatie: metIsolatie,
     });
     setResultaat(res);
-    trackCalculation(type, res.totaal);
+    trackCalculation(type, res.totaal, type === "warmtepompboiler" ? 0 : vermogen, label);
   }, [type, vermogen, label, isEerste, metIsolatie, trackCalculation]);
 
   const isCompact = variant === "compact";

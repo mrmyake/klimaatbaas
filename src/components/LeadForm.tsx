@@ -79,7 +79,11 @@ export default function LeadForm({
         body: JSON.stringify(body),
       });
       if (!res.ok) throw new Error();
-      trackEvent("lead_form_submit", { site, postcode: String(data.postcode || "") });
+      trackEvent("lead_form_submit", {
+        site,
+        postcode: String(data.postcode || ""),
+        source_page: window.location.pathname,
+      });
       setStatus("success");
     } catch {
       setStatus("error");
@@ -114,7 +118,7 @@ export default function LeadForm({
             href="tel:+31629173468"
             className="font-semibold underline"
             style={{ color: primaryColor }}
-            onClick={() => trackEvent("phone_click", { location: "lead_form" })}
+            onClick={() => trackEvent("phone_click", { source_page: window.location.pathname })}
           >
             +31 6 2917 3468
           </a>

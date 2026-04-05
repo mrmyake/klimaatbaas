@@ -47,7 +47,7 @@ function HeroSection() {
           <div className="flex flex-wrap gap-4">
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "hero-warmtepomp")}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#C0392B" }}
             >
@@ -57,7 +57,7 @@ function HeroSection() {
             </a>
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "hero-airco")}
-              onClick={() => trackEvent("cta_click_aircobaas")}
+              onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg text-white font-semibold transition-opacity hover:opacity-90"
               style={{ backgroundColor: "#2980B9" }}
             >
@@ -102,7 +102,7 @@ function DirectAnswer() {
             tot €4.400 ISDE-subsidie.{" "}
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "direct-answer")}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="underline font-semibold"
               style={{ color: "#C0392B" }}
             >
@@ -114,7 +114,7 @@ function DirectAnswer() {
             binnen 2 weken.{" "}
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "direct-answer")}
-              onClick={() => trackEvent("cta_click_aircobaas")}
+              onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
               className="underline font-semibold"
               style={{ color: "#2980B9" }}
             >
@@ -142,7 +142,7 @@ function WieZijnWij() {
           specialistenteams:{" "}
           <a
             href={utmLink("https://warmtebaas.com", "klimaatbaas", "wie-zijn-wij")}
-            onClick={() => trackEvent("cta_click_warmtebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="underline font-semibold"
             style={{ color: "#C0392B" }}
           >
@@ -151,7 +151,7 @@ function WieZijnWij() {
           voor warmtepompen en{" "}
           <a
             href={utmLink("https://aircobaas.com", "klimaatbaas", "wie-zijn-wij")}
-            onClick={() => trackEvent("cta_click_aircobaas")}
+            onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
             className="underline font-semibold"
             style={{ color: "#2980B9" }}
           >
@@ -237,7 +237,7 @@ function Specialismen() {
             </p>
             <a
               href={utmLink("https://aircobaas.com", "klimaatbaas", "specialismen-aircobaas")}
-              onClick={() => trackEvent("cta_click_aircobaas")}
+              onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 text-blue-600 font-semibold hover:gap-3 transition-all"
             >
               Naar aircobaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -256,7 +256,7 @@ function Specialismen() {
             </p>
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "specialismen-warmtebaas")}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 text-red-400 font-semibold hover:gap-3 transition-all"
             >
               Naar warmtebaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -274,7 +274,7 @@ function Specialismen() {
             </p>
             <a
               href={utmLink("https://subsidiebaas.com", "klimaatbaas", "specialismen-subsidiebaas")}
-              onClick={() => trackEvent("cta_click_subsidiebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 text-green-700 font-semibold text-sm hover:gap-3 transition-all"
             >
               subsidiebaas.com <ArrowRight className="w-4 h-4" aria-hidden="true" />
@@ -354,7 +354,7 @@ function DarkCTA() {
           <div className="flex flex-wrap gap-4">
             <a
               href="#formulier"
-              onClick={() => trackEvent("cta_click_dark_contact")}
+              onClick={() => trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "dark-cta" })}
               className="inline-flex items-center gap-2 px-6 py-3 bg-white text-[#00030a] rounded-lg font-semibold transition-opacity hover:opacity-90"
             >
               Neem contact op
@@ -362,7 +362,7 @@ function DarkCTA() {
             </a>
             <a
               href={utmLink("https://warmtebaas.com", "klimaatbaas", "dark-cta-warmtebaas")}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 px-6 py-3 border border-white text-white rounded-lg font-semibold transition-opacity hover:opacity-80"
             >
               Bekijk warmtepompen

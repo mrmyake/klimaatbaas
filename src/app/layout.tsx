@@ -55,17 +55,23 @@ function GTMNoScript() {
 }
 
 function GA4Script() {
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
-  if (!gaId) return null;
-
   return (
     <>
       <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        src="https://www.googletagmanager.com/gtag/js?id=G-J4TP53K0CS"
         strategy="afterInteractive"
       />
-      <Script id="ga4-init" strategy="afterInteractive">
-        {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`}
+      <Script id="gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-J4TP53K0CS', {
+            linker: {
+              domains: ['subsidiebaas.com', 'warmtebaas.com', 'aircobaas.com', 'klimaatbaas.com']
+            }
+          });
+        `}
       </Script>
     </>
   );

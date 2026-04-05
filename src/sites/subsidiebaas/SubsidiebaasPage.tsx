@@ -84,7 +84,7 @@ function HeroSection() {
           </button>
           <a
             href={utmLink("https://warmtebaas.com", "subsidiebaas", "hero")}
-            onClick={() => trackEvent("cta_click_warmtebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="border border-slate-200 px-8 py-4 rounded-lg font-bold text-lg inline-flex items-center gap-2 hover:bg-slate-50 transition-colors"
           >
             Direct installatie aanvragen
@@ -227,7 +227,7 @@ function DirectAnswer() {
                 "subsidiebaas",
                 "direct-answer"
               )}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="underline font-semibold text-[#27AE60] hover:text-[#1E8449] transition-colors"
             >
               Warmtebaas regelt de volledige aanvraag voor u →
@@ -447,7 +447,7 @@ function InternalLinks() {
               "subsidiebaas",
               "meer-van-klimaatbaas"
             )}
-            onClick={() => trackEvent("cta_click_warmtebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-slate-50 transition-colors"
           >
             Warmtepomp installatie → Warmtebaas
@@ -458,7 +458,7 @@ function InternalLinks() {
               "subsidiebaas",
               "meer-van-klimaatbaas"
             )}
-            onClick={() => trackEvent("cta_click_aircobaas")}
+            onClick={() => trackEvent("cta_click", { destination: "aircobaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-slate-200 font-semibold hover:bg-slate-50 transition-colors"
           >
             Airco installatie → Aircobaas

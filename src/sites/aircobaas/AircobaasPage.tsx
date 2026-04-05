@@ -44,7 +44,7 @@ function HeroDark() {
         <div className="flex flex-wrap gap-4">
           <button
             onClick={() => {
-              trackEvent("cta_click_hero_primary");
+              trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "hero" });
               document.getElementById("formulier")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="inline-flex items-center gap-2 bg-[#2980B9] text-white font-semibold px-8 py-4 rounded-lg text-lg shadow-lg shadow-[#2980B9]/20 hover:shadow-xl transition-all hover:-translate-y-0.5"
@@ -54,7 +54,7 @@ function HeroDark() {
           </button>
           <button
             onClick={() => {
-              trackEvent("cta_click_hero_secondary");
+              trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "hero" });
               document.getElementById("formulier")?.scrollIntoView({ behavior: "smooth" });
             }}
             className="inline-flex items-center gap-2 border-2 border-white text-white font-semibold px-8 py-4 rounded-lg text-lg hover:bg-white/10 transition-all"
@@ -288,7 +288,7 @@ function ProductCards() {
           Ook interesse in een{" "}
           <a
             href={utmLink("https://warmtebaas.com", "aircobaas", "prijstabel-link")}
-            onClick={() => trackEvent("cta_click_warmtebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="underline font-semibold"
             style={{ color: "#C0392B" }}
           >
@@ -314,7 +314,7 @@ function PrijsCTA() {
         </p>
         <button
           onClick={() => {
-            trackEvent("cta_click_prijs");
+            trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "pricing" });
             document.getElementById("formulier")?.scrollIntoView({ behavior: "smooth" });
           }}
           className="inline-flex items-center gap-2 bg-[#2980B9] text-white font-semibold px-8 py-4 rounded-lg text-lg shadow-lg shadow-[#2980B9]/20 hover:shadow-xl transition-all hover:-translate-y-0.5"
@@ -406,7 +406,7 @@ function FrostCTA() {
         </p>
         <button
           onClick={() => {
-            trackEvent("cta_click_frost");
+            trackEvent("cta_click", { destination: "self", source_page: window.location.pathname, cta_location: "frost-cta" });
             document.getElementById("formulier")?.scrollIntoView({ behavior: "smooth" });
           }}
           className="bg-white text-[#00030a] px-12 py-5 rounded-lg font-black uppercase tracking-widest hover:bg-white/90 transition-colors"
@@ -427,14 +427,14 @@ function InternalLinks() {
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href={utmLink("https://warmtebaas.com", "aircobaas", "meer-van-klimaatbaas")}
-            onClick={() => trackEvent("cta_click_warmtebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-red-200 text-red-700 font-semibold hover:bg-red-50 transition-colors"
           >
             Warmtepomp nodig? &rarr; Warmtebaas
           </a>
           <a
             href={utmLink("https://subsidiebaas.com", "aircobaas", "meer-van-klimaatbaas")}
-            onClick={() => trackEvent("cta_click_subsidiebaas")}
+            onClick={() => trackEvent("cta_click", { destination: "subsidiebaas", source_page: window.location.pathname, cta_location: "content" })}
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border-2 border-green-200 text-green-700 font-semibold hover:bg-green-50 transition-colors"
           >
             Subsidie berekenen &rarr; Subsidiebaas

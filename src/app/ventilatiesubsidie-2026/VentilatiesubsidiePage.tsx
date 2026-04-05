@@ -123,7 +123,7 @@ export default function VentilatiesubsidiePage() {
             </p>
             <a
               href={utmLink("https://warmtebaas.com", "subsidiebaas", "ventilatie-cta")}
-              onClick={() => trackEvent("cta_click_warmtebaas")}
+              onClick={() => trackEvent("cta_click", { destination: "warmtebaas", source_page: window.location.pathname, cta_location: "content" })}
               className="inline-flex items-center gap-2 bg-white font-semibold px-8 py-4 rounded-xl text-lg shadow-lg hover:shadow-xl transition-all"
               style={{ color: config.colors.primary }}
             >
