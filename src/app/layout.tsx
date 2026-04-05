@@ -73,6 +73,13 @@ function GA4Script() {
           });
         `}
       </Script>
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=AW-11009845057"
+        strategy="afterInteractive"
+      />
+      <Script id="gads-init" strategy="afterInteractive">
+        {`gtag('config', 'AW-11009845057');`}
+      </Script>
     </>
   );
 }
