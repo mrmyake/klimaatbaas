@@ -460,6 +460,24 @@ export default function AircobaasPage() {
       <Navbar siteName="Aircobaas" primaryColor="#00030a" accentColor="#00daf3" isDark />
       <HeroDark />
       <UrgentieBanner />
+      <LeadForm
+        site="aircobaas"
+        title="Gratis offerte aanvragen"
+        primaryColor="#00daf3"
+        isDark={true}
+        submitLabel="Offerte aanvragen"
+        subtext="Binnen 24 uur reactie. Vrijblijvend."
+        fields={[
+          { name: "naam", label: "Naam", type: "text", required: true },
+          { name: "email", label: "E-mail", type: "email", required: true },
+          { name: "telefoon", label: "Telefoon", type: "tel", required: true },
+          { name: "postcode", label: "Postcode", type: "text" },
+          { name: "aantal_ruimtes", label: "Aantal ruimtes", type: "select", options: [{ value: "1", label: "1 ruimte" }, { value: "2-3", label: "2-3 ruimtes" }, { value: "4+", label: "4+ ruimtes" }] },
+          { name: "type_airco", label: "Gewenst", type: "select", options: [{ value: "koelen", label: "Alleen koelen" }, { value: "koelen-en-verwarmen", label: "Koelen én verwarmen" }, { value: "weet-niet", label: "Weet ik nog niet" }] },
+          { name: "gewenste_timing", label: "Wanneer", type: "select", options: [{ value: "zo-snel-mogelijk", label: "Zo snel mogelijk" }, { value: "binnen-3-maanden", label: "Binnen 3 maanden" }, { value: "orienterend", label: "Ik oriënteer me" }] },
+          { name: "bericht", label: "Bericht (optioneel)", type: "textarea", placeholder: "Heeft u nog vragen of opmerkingen?" },
+        ]}
+      />
       <DirectAnswer />
       <ExpertiseBento />
       <ProductCards />
@@ -486,24 +504,6 @@ export default function AircobaasPage() {
         ]}
       />
       <InternalLinks />
-      <LeadForm
-        site="aircobaas"
-        title="Gratis offerte aanvragen"
-        primaryColor="#00daf3"
-        isDark={true}
-        submitLabel="Offerte aanvragen"
-        subtext="Binnen 24 uur reactie. Vrijblijvend."
-        fields={[
-          { name: "naam", label: "Naam", type: "text", required: true },
-          { name: "email", label: "E-mail", type: "email", required: true },
-          { name: "telefoon", label: "Telefoon", type: "tel", required: true },
-          { name: "postcode", label: "Postcode", type: "text" },
-          { name: "aantal_ruimtes", label: "Aantal ruimtes", type: "select", options: [{ value: "1", label: "1 ruimte" }, { value: "2-3", label: "2-3 ruimtes" }, { value: "4+", label: "4+ ruimtes" }] },
-          { name: "type_airco", label: "Gewenst", type: "select", options: [{ value: "koelen", label: "Alleen koelen" }, { value: "koelen-en-verwarmen", label: "Koelen én verwarmen" }, { value: "weet-niet", label: "Weet ik nog niet" }] },
-          { name: "gewenste_timing", label: "Wanneer", type: "select", options: [{ value: "zo-snel-mogelijk", label: "Zo snel mogelijk" }, { value: "binnen-3-maanden", label: "Binnen 3 maanden" }, { value: "orienterend", label: "Ik oriënteer me" }] },
-          { name: "bericht", label: "Bericht (optioneel)", type: "textarea", placeholder: "Heeft u nog vragen of opmerkingen?" },
-        ]}
-      />
       <Footer
         primaryColor="#00030a"
         accentColor="#00daf3"

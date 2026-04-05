@@ -565,6 +565,25 @@ export default function WarmtebaasPage() {
       <Navbar siteName="Warmtebaas" primaryColor="#E05E28" accentColor="#E05E28" borderColor="#E05E28" />
       <HeroSection />
       <UrgentieBanner />
+      <LeadForm
+        site="warmtebaas"
+        title="Gratis woningcheck aanvragen"
+        primaryColor="#E05E28"
+        submitLabel="Woningcheck aanvragen"
+        subtext="Binnen 48 uur nemen wij contact met u op voor een gratis adviesgesprek."
+        fields={[
+          { name: "naam", label: "Naam", type: "text", required: true },
+          { name: "email", label: "E-mail", type: "email", required: true },
+          { name: "telefoon", label: "Telefoon", type: "tel", required: true },
+          { name: "postcode", label: "Postcode", type: "text" },
+          { name: "type_woning", label: "Type woning", type: "select", options: [{ value: "tussenwoning", label: "Tussenwoning" }, { value: "hoekwoning", label: "Hoekwoning" }, { value: "2-onder-1-kap", label: "2-onder-1-kap" }, { value: "vrijstaand", label: "Vrijstaand" }, { value: "appartement", label: "Appartement" }] },
+          { name: "bouwjaar", label: "Bouwjaar", type: "select", options: [{ value: "<1975", label: "Voor 1975" }, { value: "1975-1990", label: "1975–1990" }, { value: "1990-2005", label: "1990–2005" }, { value: "2005-2020", label: "2005–2020" }, { value: ">2020", label: "Na 2020" }] },
+          { name: "huidig_systeem", label: "Huidig verwarmingssysteem", type: "select", options: [{ value: "cv-ketel", label: "CV-ketel" }, { value: "stadsverwarming", label: "Stadsverwarming" }, { value: "warmtepomp", label: "Warmtepomp" }, { value: "anders", label: "Anders" }] },
+          { name: "isolatie", label: "Isolatie", type: "select", options: [{ value: "goed", label: "Goed" }, { value: "redelijk", label: "Redelijk" }, { value: "matig", label: "Matig" }, { value: "weet-niet", label: "Weet ik niet" }] },
+          { name: "voorkeur_wp", label: "Voorkeur", type: "select", options: [{ value: "hybride", label: "Hybride warmtepomp" }, { value: "all-electric", label: "All-electric warmtepomp" }, { value: "weet-niet", label: "Weet ik nog niet" }] },
+          { name: "bericht", label: "Bericht (optioneel)", type: "textarea", placeholder: "Heeft u nog vragen of opmerkingen?" },
+        ]}
+      />
       <DirectAnswer />
       <ExpertiseBento />
       <StappenSection />
@@ -610,86 +629,6 @@ export default function WarmtebaasPage() {
         siteSlug="warmtebaas"
       />
       <InternalLinks />
-      <LeadForm
-        site="warmtebaas"
-        title="Gratis woningcheck aanvragen"
-        primaryColor="#E05E28"
-        submitLabel="Woningcheck aanvragen"
-        subtext="Binnen 48 uur nemen wij contact met u op voor een gratis adviesgesprek."
-        fields={[
-          { name: "naam", label: "Naam", type: "text", required: true },
-          { name: "email", label: "E-mail", type: "email", required: true },
-          {
-            name: "telefoon",
-            label: "Telefoon",
-            type: "tel",
-            required: true,
-          },
-          { name: "postcode", label: "Postcode", type: "text" },
-          {
-            name: "type_woning",
-            label: "Type woning",
-            type: "select",
-            options: [
-              { value: "tussenwoning", label: "Tussenwoning" },
-              { value: "hoekwoning", label: "Hoekwoning" },
-              { value: "2-onder-1-kap", label: "2-onder-1-kap" },
-              { value: "vrijstaand", label: "Vrijstaand" },
-              { value: "appartement", label: "Appartement" },
-            ],
-          },
-          {
-            name: "bouwjaar",
-            label: "Bouwjaar",
-            type: "select",
-            options: [
-              { value: "<1975", label: "Voor 1975" },
-              { value: "1975-1990", label: "1975–1990" },
-              { value: "1990-2005", label: "1990–2005" },
-              { value: "2005-2020", label: "2005–2020" },
-              { value: ">2020", label: "Na 2020" },
-            ],
-          },
-          {
-            name: "huidig_systeem",
-            label: "Huidig verwarmingssysteem",
-            type: "select",
-            options: [
-              { value: "cv-ketel", label: "CV-ketel" },
-              { value: "stadsverwarming", label: "Stadsverwarming" },
-              { value: "warmtepomp", label: "Warmtepomp" },
-              { value: "anders", label: "Anders" },
-            ],
-          },
-          {
-            name: "isolatie",
-            label: "Isolatie",
-            type: "select",
-            options: [
-              { value: "goed", label: "Goed" },
-              { value: "redelijk", label: "Redelijk" },
-              { value: "matig", label: "Matig" },
-              { value: "weet-niet", label: "Weet ik niet" },
-            ],
-          },
-          {
-            name: "voorkeur_wp",
-            label: "Voorkeur",
-            type: "select",
-            options: [
-              { value: "hybride", label: "Hybride warmtepomp" },
-              { value: "all-electric", label: "All-electric warmtepomp" },
-              { value: "weet-niet", label: "Weet ik nog niet" },
-            ],
-          },
-          {
-            name: "bericht",
-            label: "Bericht (optioneel)",
-            type: "textarea",
-            placeholder: "Heeft u nog vragen of opmerkingen?",
-          },
-        ]}
-      />
       <Footer
         accentColor="#E05E28"
         primaryColor="#E05E28"
