@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
-import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import GA4Script from "@/components/GA4Script";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,35 +54,6 @@ function GTMNoScript() {
   );
 }
 
-function GA4Script() {
-  return (
-    <>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=G-J4TP53K0CS"
-        strategy="lazyOnload"
-      />
-      <Script id="gtag-init" strategy="lazyOnload">
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-          gtag('config', 'G-J4TP53K0CS', {
-            linker: {
-              domains: ['subsidiebaas.com', 'warmtebaas.com', 'aircobaas.com', 'klimaatbaas.com']
-            }
-          });
-        `}
-      </Script>
-      <Script
-        src="https://www.googletagmanager.com/gtag/js?id=AW-11009845057"
-        strategy="lazyOnload"
-      />
-      <Script id="gads-init" strategy="lazyOnload">
-        {`gtag('config', 'AW-11009845057');`}
-      </Script>
-    </>
-  );
-}
 
 export default function RootLayout({
   children,
