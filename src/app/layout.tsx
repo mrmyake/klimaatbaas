@@ -59,9 +59,9 @@ function GA4Script() {
     <>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-J4TP53K0CS"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gtag-init" strategy="afterInteractive">
+      <Script id="gtag-init" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -75,9 +75,9 @@ function GA4Script() {
       </Script>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=AW-11009845057"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="gads-init" strategy="afterInteractive">
+      <Script id="gads-init" strategy="lazyOnload">
         {`gtag('config', 'AW-11009845057');`}
       </Script>
     </>

@@ -9,14 +9,19 @@ export function middleware(request: NextRequest) {
 
   const site = getSiteByHostname(hostname);
 
-  // Rewrite to same path with site as query param (URL in browser stays clean)
+  // Set x-site header for edge caching + rewrite with query param for page routing
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set("x-site", site);
+
   const url = request.nextUrl.clone();
   url.searchParams.set("__site", site);
 
-  return NextResponse.rewrite(url);
+  return NextResponse.rewrite(url, {
+    request: { headers: requestHeaders },
+  });
 }
 
 // Run on all routes except static files
 export const config = {
-  matcher: ["/((?!_next|api|favicon.ico).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)"],
 };
